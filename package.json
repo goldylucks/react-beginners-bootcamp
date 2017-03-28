@@ -1,0 +1,89 @@
+{
+  "scripts": {
+    "start": "yarn dev:wds",
+    "dev:start": "nodemon src/server --exec babel-node",
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "prod:start": "cross-env NODE_ENV=production PORT=8001 node lib/server",
+    "lint": "eslint src/**/*.{js,jsx} webpack.config.babel.js",
+    "lint-staged": "lint-staged",
+    "lintstyle": "stylelint src/**/*.css public/css/style.css"
+  },
+  "git": {
+    "scripts": {
+      "pre-commit": "yarn lint-staged",
+      "pre-push": "yarn lint && yarn flow"
+    }
+  },
+  "lint-staged": {
+    "webpack.config.babel.js": "eslint",
+    "src/**/*.{js,jsx}": "eslint"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "bootstrap": "^3.3.7",
+    "compression": "^1.6.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.0",
+    "jss": "^6.5.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-helmet": "^5.0.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-jss": "^5.4.0",
+    "react-redux": "^5.0.3",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "serve-favicon": "^2.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-flow-react-proptypes": "^0.21.0",
+    "babel-preset-env": "^1.2.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^3.2.3",
+    "css-loader": "^0.28.0",
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-compat": "^1.0.2",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "file-loader": "^0.11.1",
+    "flow-bin": "^0.42.0",
+    "git-scripts": "^0.2.1",
+    "html-webpack-plugin": "^2.28.0",
+    "jest": "^19.0.2",
+    "lint-staged": "^3.6.1",
+    "local-web-server": "^1.2.7",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.16.1",
+    "stylefmt": "^5.3.0",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-order": "^0.4.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "engines": {
+    "node": "7.x",
+    "yarn": "0.21.3"
+  }
+}

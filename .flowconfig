@@ -1,0 +1,6 @@
+[options]
+suppress_comment= \\(.\\|\n\\)*\\flow-disable-next-line
+
+[ignore]
+.*/node_modules/stylelint
+.*/node_modules/jss
