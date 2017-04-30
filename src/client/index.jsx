@@ -7,22 +7,28 @@ ReactDOM.render(
   document.getElementById('flip-app'),
 )
 
+const GuessnumberApp = () => <h2>Guess Number!</h2>
 ReactDOM.render(
-  <h2>Guess Number</h2>,
+  <GuessnumberApp />,
   document.getElementById('guessnumber-app'),
 )
 
+const FizzbuzzApp = () => <h2>Fizzbuzz!</h2>
 ReactDOM.render(
-  <h2>Fizzbuzz</h2>,
+  <FizzbuzzApp />,
   document.getElementById('fizzbuzz-app'),
 )
 
+const AuthApp = () => <h2>Auth!</h2>
+
 ReactDOM.render(
-  <h2>Auth</h2>,
+  <AuthApp />,
   document.getElementById('auth-app'),
 )
 
+const SeriesApp = () => <h2>Series!</h2>
+
 ReactDOM.render(
-  <h2>Series</h2>,
+  <SeriesApp />,
   document.getElementById('series-app'),
 )
