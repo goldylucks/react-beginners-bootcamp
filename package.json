@@ -47,6 +47,7 @@
     "babel-preset-env": "^1.2.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
     "cross-env": "^3.2.3",
     "css-loader": "^0.26.4",
     "eslint": "^3.17.0",
