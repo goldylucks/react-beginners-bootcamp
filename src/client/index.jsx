@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import FlipApp from './Flip'
 import GuessnumberApp from './Guessnumber'

@@ -18,6 +18,16 @@ export default {
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', include: /src/ },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
+        test: /\.(woff(2)|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'file-loader',
+      },
+
     ],
   },
   devtool: isProd ? false : 'source-map',
