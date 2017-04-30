@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+const FlipApp = () => <h2>Flip!</h2>
 ReactDOM.render(
-  <h2>Flip</h2>,
+  <FlipApp />,
   document.getElementById('flip-app'),
 )
 
