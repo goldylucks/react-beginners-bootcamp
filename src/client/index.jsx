@@ -22,28 +22,30 @@ if (module.hot) {
     const NextFlipApp = require('./Flip').default // eslint-disable-line global-require
     render(NextFlipApp, 'flip')
   })
+
+  module.hot.accept('./Guessnumber', () => {
+    const NextGuessnumberApp = require('./Guessnumber').default // eslint-disable-line global-require
+    render(NextGuessnumberApp, 'guessnumber')
+  })
+
+  module.hot.accept('./Fizzbuzz', () => {
+    const NextFizzbuzzApp = require('./Fizzbuzz').default // eslint-disable-line global-require
+    render(NextFizzbuzzApp, 'fizzbuzz')
+  })
+
+  module.hot.accept('./Auth', () => {
+    const NextAuthApp = require('./Auth').default // eslint-disable-line global-require
+    render(NextAuthApp, 'auth')
+  })
+
+  module.hot.accept('./Series', () => {
+    const NextSeriesApp = require('./Series').default // eslint-disable-line global-require
+    render(NextSeriesApp, 'series')
+  })
 }
 
 render(FlipApp, 'flip')
-
-ReactDOM.render(
-  <GuessnumberApp />,
-  document.getElementById('guessnumber-app'),
-)
-
-ReactDOM.render(
-  <FizzbuzzApp />,
-  document.getElementById('fizzbuzz-app'),
-)
-
-
-ReactDOM.render(
-  <AuthApp />,
-  document.getElementById('auth-app'),
-)
-
-
-ReactDOM.render(
-  <SeriesApp />,
-  document.getElementById('series-app'),
-)
+render(GuessnumberApp, 'guessnumber')
+render(FizzbuzzApp, 'fizzbuzz')
+render(AuthApp, 'auth')
+render(SeriesApp, 'series')
