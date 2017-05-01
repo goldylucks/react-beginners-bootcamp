@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
@@ -18,7 +20,7 @@ class Guessnumber extends React.Component {
 
   state = {
     number: randomNum(),
-    guessed: null,
+    guessed: 0,
     guessInput: '',
   }
 

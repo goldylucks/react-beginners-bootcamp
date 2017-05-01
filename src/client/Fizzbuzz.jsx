@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
@@ -101,7 +103,7 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     placeholder="divisible word #1"
                     value={divisibleWord1}
-                    onChange={evt => this.setState({ divisibleWord1: Number(evt.target.value) })}
+                    onChange={evt => this.setState({ divisibleWord1: evt.target.value })}
                   />
                 </div>
               </div>
@@ -129,7 +131,7 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     placeholder="divisible word #2"
                     value={divisibleWord2}
-                    onChange={evt => this.setState({ divisibleWord2: Number(evt.target.value) })}
+                    onChange={evt => this.setState({ divisibleWord2: evt.target.value })}
                   />
                 </div>
               </div>
