@@ -34,8 +34,14 @@ class Series extends React.Component {
           <div className="col-md-4">
             <h3>Controls</h3>
             <div className="form-group">
-              <input className="form-control" placeholder="Search Series" value={this.state.query} />
+              <input
+                className="form-control"
+                placeholder="Search Series"
+                value={this.state.query}
+                onChange={evt => this.setState({ query: evt.target.value })}
+              />
             </div>
+            <h4><strong>query</strong>: {this.state.query}</h4>
             <div style={styles.autocomplete}>
               <div style={styles.autocompleteRow}>Southpark</div>
               <div

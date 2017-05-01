@@ -2,6 +2,9 @@ import React from 'react'
 
 class Auth extends React.Component {
   state = {
+    emailInput: '',
+    nameInput: '',
+    passwordInput: '',
     role: 'guest',
     name: '',
   }
@@ -25,18 +28,38 @@ class Auth extends React.Component {
             <h3>Controls</h3>
             <div className="row">
               <div className="col-md-12 form-group">
-                <input placeholder="Name" className="form-control" />
+                <input
+                  placeholder="Name"
+                  className="form-control"
+                  value={this.state.nameInput}
+                  onChange={evt => this.setState({ nameInput: evt.target.value })}
+                />
               </div>
+              <h4><strong>nameInput</strong>: {this.state.nameInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-12 form-group">
-                <input type="email" placeholder="Email" className="form-control" />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="form-control"
+                  value={this.state.emailInput}
+                  onChange={evt => this.setState({ emailInput: evt.target.value })}
+                />
               </div>
+              <h4><strong>emailInput</strong>: {this.state.emailInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-12 form-group">
-                <input type="password" placeholder="Password" className="form-control" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="form-control"
+                  value={this.state.passwordInput}
+                  onChange={evt => this.setState({ passwordInput: evt.target.value })}
+                />
               </div>
+              <h4><strong>passwordInput</strong>: {this.state.passwordInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-6">
