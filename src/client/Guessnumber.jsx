@@ -20,6 +20,10 @@ class Guessnumber extends React.Component {
     guessInput: '',
   }
 
+  guess() {
+    console.log('[guess]')
+  }
+
   renderOutput() {
     if (!this.state.guessed) {
       return null
@@ -49,7 +53,7 @@ class Guessnumber extends React.Component {
                 max={100}
               />
               <span className="input-group-btn">
-                <button className="btn btn-primary">Guess</button>
+                <button className="btn btn-primary" onClick={() => this.guess()}>Guess</button>
               </span>
             </div>
             <h4><strong>guessInput</strong>: {this.state.guessInput}</h4>

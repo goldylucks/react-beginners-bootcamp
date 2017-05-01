@@ -11,6 +11,14 @@ class Fizzbuzz extends React.Component {
     result: [],
   }
 
+  hitme() {
+    console.log('[hitme]')
+  }
+
+  reset() {
+    console.log('[reset]')
+  }
+
   render() {
     return (
       <div className="container app-container">
@@ -112,10 +120,10 @@ class Fizzbuzz extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button className="btn btn-primary btn-block">Hit me!</button>
+                <button className="btn btn-primary btn-block" onClick={() => this.hitme()}>Hit me!</button>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-default btn-block">Reset</button>
+                <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
               </div>
             </div>
           </div>
