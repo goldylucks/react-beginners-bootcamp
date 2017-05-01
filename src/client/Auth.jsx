@@ -6,6 +6,16 @@ class Auth extends React.Component {
     name: '',
   }
 
+  renderOutput() {
+    if (this.state.role === 'guest') {
+      return <div>Hello, guest</div>
+    }
+    if (this.state.role === 'user') {
+      return <div>Welcome back {this.state.name}!</div>
+    }
+    return <div>Welcome aboard, {this.state.name}!</div>
+  }
+
   render() {
     return (
       <div className="container app-container">
@@ -39,7 +49,7 @@ class Auth extends React.Component {
           </div>
           <div className="col-md-2 col-md-offset-2">
             <h3>Output</h3>
-            <div className="well" />
+            <div className="well">{this.renderOutput()}</div>
           </div>
         </div>
       </div>

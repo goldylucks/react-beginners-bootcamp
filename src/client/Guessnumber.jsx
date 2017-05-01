@@ -2,15 +2,15 @@ import React from 'react'
 
 const randomNum = () => Math.floor(Math.random() * 100) + 1
 
-// const styles = {
-//   success: {
-//     color: 'limegreen',
-//   },
-//
-//   failure: {
-//     color: 'red',
-//   },
-// }
+const styles = {
+  success: {
+    color: 'limegreen',
+  },
+
+  failure: {
+    color: 'red',
+  },
+}
 
 class Guessnumber extends React.Component {
 
@@ -18,6 +18,16 @@ class Guessnumber extends React.Component {
     number: randomNum(),
     guessed: null,
     guessInput: '',
+  }
+
+  renderOutput() {
+    if (!this.state.guessed) {
+      return null
+    }
+    if (this.state.guessed === this.state.guessInput) {
+      return <div style={styles.success}>[{this.state.guessed}]: Bullseye!</div>
+    }
+    return <div style={styles.failure}>[{this.state.guessed}]: Too {this.state.guessed > this.state.number ? 'High' : 'Low'}...</div>
   }
 
   render() {
@@ -37,7 +47,7 @@ class Guessnumber extends React.Component {
           </div>
           <div className="col-md-2 col-md-offset-2">
             <h3>Output</h3>
-            <div className="well" />
+            <div className="well">{this.renderOutput()}</div>
           </div>
         </div>
       </div>
