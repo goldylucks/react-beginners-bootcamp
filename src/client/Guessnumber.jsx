@@ -39,11 +39,20 @@ class Guessnumber extends React.Component {
           <div className="col-md-4">
             <h3>Controls</h3>
             <div className="input-group">
-              <input className="form-control" type="number" placeholder="Place your guess here" min={1} max={100} />
+              <input
+                value={this.state.guessInput}
+                onChange={evt => this.setState({ guessInput: evt.target.value })}
+                className="form-control"
+                type="number"
+                placeholder="Place your guess here"
+                min={1}
+                max={100}
+              />
               <span className="input-group-btn">
                 <button className="btn btn-primary">Guess</button>
               </span>
             </div>
+            <h4><strong>guessInput</strong>: {this.state.guessInput}</h4>
           </div>
           <div className="col-md-2 col-md-offset-2">
             <h3>Output</h3>
