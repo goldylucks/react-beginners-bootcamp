@@ -1,5 +1,7 @@
 import React from 'react'
 
+import App from './App'
+
 const styles = {
   score: {
     color: 'green',
@@ -46,32 +48,28 @@ class FlipApp extends React.Component {
 
   render() {
     return (
-      <div className="container app-container">
-        <h2>Flip</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <h3>Controls</h3>
-            <div className="row">
-              <div className="col-md-4">
-                <button className="btn btn-primary btn-block" onClick={() => this.guess('Heads')}>Heads</button>
-              </div>
-              <div className="col-md-4">
-                <button className="btn btn-primary btn-block" onClick={() => this.guess('Tails')}>Tails</button>
-              </div>
-              <div className="col-md-4">
-                <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
-              </div>
+      <App
+        appName="Flip (using App)"
+        controls={
+          <div className="row">
+            <div className="col-md-4">
+              <button className="btn btn-primary btn-block" onClick={() => this.guess('Heads')}>Heads</button>
+            </div>
+            <div className="col-md-4">
+              <button className="btn btn-primary btn-block" onClick={() => this.guess('Tails')}>Tails</button>
+            </div>
+            <div className="col-md-4">
+              <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
             </div>
           </div>
-          <div className="col-md-2 col-md-offset-2">
-            <h3>Output</h3>
-            <div className="well">
-              <span style={styles.score}>Score: <strong>{this.state.score}</strong></span>
-              {this.renderOutput()}
-            </div>
+        }
+        output={
+          <div>
+            <span style={styles.score}>Score: <strong>{this.state.score}</strong></span>
+            {this.renderOutput()}
           </div>
-        </div>
-      </div>
+        }
+      />
     )
   }
 }
