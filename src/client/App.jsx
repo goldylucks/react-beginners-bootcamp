@@ -1,6 +1,14 @@
+// @flow
+
 import React from 'react'
 
-const App = ({ appName, controls, output }) =>
+type Props = {
+  appName: string,
+  controls: Object,
+  output: ?any,
+}
+
+const App = ({ appName, controls, output }: Props) =>
   <div className="container app-container">
     <h2>{appName}</h2>
     <div className="row">
