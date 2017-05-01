@@ -1,5 +1,7 @@
 import React from 'react'
 
+import App from './App'
+
 const series = ['Southpark', 'Mr. Robot', 'Seinfeld']
 
 const styles = {
@@ -43,11 +45,10 @@ class Series extends React.Component {
 
   render() {
     return (
-      <div className="container app-container">
-        <h2>Series</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <h3>Controls</h3>
+      <App
+        appName="Series (using App)"
+        controls={
+          <div>
             <div className="form-group">
               <input
                 className="form-control"
@@ -56,15 +57,11 @@ class Series extends React.Component {
                 onChange={evt => this.setState({ query: evt.target.value })}
               />
             </div>
-            <h4><strong>query</strong>: {this.state.query}</h4>
             {this.renderAutocompleteResults()}
           </div>
-          <div className="col-md-2 col-md-offset-2">
-            <h3>Output</h3>
-            <div className="well">{this.renderOutput()}</div>
-          </div>
-        </div>
-      </div>
+        }
+        output={this.renderOutput()}
+      />
     )
   }
 }

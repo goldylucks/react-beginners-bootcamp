@@ -1,5 +1,7 @@
 import React from 'react'
 
+import App from './App'
+
 class Auth extends React.Component {
   state = {
     emailInput: '',
@@ -30,11 +32,10 @@ class Auth extends React.Component {
 
   render() {
     return (
-      <div className="container app-container">
-        <h2>Auth app!</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <h3>Controls</h3>
+      <App
+        appName="Auth (using App)"
+        controls={
+          <div>
             <div className="row">
               <div className="col-md-12 form-group">
                 <input
@@ -44,7 +45,6 @@ class Auth extends React.Component {
                   onChange={evt => this.setState({ nameInput: evt.target.value })}
                 />
               </div>
-              <h4><strong>nameInput</strong>: {this.state.nameInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-12 form-group">
@@ -56,7 +56,6 @@ class Auth extends React.Component {
                   onChange={evt => this.setState({ emailInput: evt.target.value })}
                 />
               </div>
-              <h4><strong>emailInput</strong>: {this.state.emailInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-12 form-group">
@@ -68,7 +67,6 @@ class Auth extends React.Component {
                   onChange={evt => this.setState({ passwordInput: evt.target.value })}
                 />
               </div>
-              <h4><strong>passwordInput</strong>: {this.state.passwordInput}</h4>
             </div>
             <div className="row">
               <div className="col-md-6">
@@ -79,12 +77,9 @@ class Auth extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-md-2 col-md-offset-2">
-            <h3>Output</h3>
-            <div className="well">{this.renderOutput()}</div>
-          </div>
-        </div>
-      </div>
+        }
+        output={this.renderOutput()}
+      />
     )
   }
 }

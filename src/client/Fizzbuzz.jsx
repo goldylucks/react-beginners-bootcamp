@@ -1,5 +1,7 @@
 import React from 'react'
 
+import App from './App'
+
 class Fizzbuzz extends React.Component {
   state = {
     startingNumber: 1,
@@ -42,11 +44,10 @@ class Fizzbuzz extends React.Component {
     const { startingNumber, endingNumber, divisibleWord1, divisibleNumber1,
       divisibleWord2, divisibleNumber2 } = this.state
     return (
-      <div className="container app-container">
-        <h2>Fizz buzz</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <h3>Controls</h3>
+      <App
+        appName="Fizzbuzz (using App)"
+        controls={
+          <div>
             <div className="row">
               <div className="col-md-6">
                 <div className="form-group">
@@ -61,7 +62,6 @@ class Fizzbuzz extends React.Component {
                     max={10}
                   />
                 </div>
-                <h4><strong>startingNumber</strong>: {startingNumber}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -76,7 +76,6 @@ class Fizzbuzz extends React.Component {
                     max={50}
                   />
                 </div>
-                <h4><strong>endingNumber</strong>: {endingNumber}</h4>
               </div>
             </div>
             <div className="row">
@@ -93,7 +92,6 @@ class Fizzbuzz extends React.Component {
                     max={10}
                   />
                 </div>
-                <h4><strong>divisibleNumber1</strong>: {divisibleNumber1}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -106,7 +104,6 @@ class Fizzbuzz extends React.Component {
                     onChange={evt => this.setState({ divisibleWord1: evt.target.value })}
                   />
                 </div>
-                <h4><strong>divisibleWord1</strong>: {divisibleWord1}</h4>
               </div>
             </div>
             <div className="row">
@@ -123,7 +120,6 @@ class Fizzbuzz extends React.Component {
                     max={20}
                   />
                 </div>
-                <h4><strong>divisibleNumber2</strong>: {divisibleNumber2}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -136,7 +132,6 @@ class Fizzbuzz extends React.Component {
                     onChange={evt => this.setState({ divisibleWord2: evt.target.value })}
                   />
                 </div>
-                <h4><strong>divisibleWord2</strong>: {divisibleWord2}</h4>
               </div>
             </div>
             <div className="row">
@@ -148,12 +143,9 @@ class Fizzbuzz extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-md-2 col-md-offset-2">
-            <h3>Output</h3>
-            <div className="well">{this.renderOutput()}</div>
-          </div>
-        </div>
-      </div>
+        }
+        output={this.renderOutput()}
+      />
     )
   }
 }
