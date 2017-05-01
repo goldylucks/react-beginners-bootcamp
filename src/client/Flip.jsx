@@ -15,8 +15,18 @@ const styles = {
 class FlipApp extends React.Component {
   state = {
     score: 0,
-    fillResult: null,
+    flipResult: null,
     guessed: null,
+  }
+
+  renderOutput() {
+    if (!this.state.flipResult) {
+      return null
+    }
+    if (this.state.flipResult === this.state.guessed) {
+      return <div style={styles.success}>{this.state.flipResult}: You win!</div>
+    }
+    return <div style={styles.failure}>{this.state.flipResult}: You lose!</div>
   }
 
   render() {
@@ -42,6 +52,7 @@ class FlipApp extends React.Component {
             <h3>Output</h3>
             <div className="well">
               <span style={styles.score}>Score: <strong>{this.state.score}</strong></span>
+              {this.renderOutput()}
             </div>
           </div>
         </div>
