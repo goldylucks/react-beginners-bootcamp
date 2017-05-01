@@ -18,13 +18,14 @@ class Auth extends React.Component {
   }
 
   renderOutput() {
-    if (this.state.role === 'guest') {
+    const { role, name } = this.state
+    if (role === 'guest') {
       return <div>Hello, guest</div>
     }
-    if (this.state.role === 'user') {
-      return <div>Welcome back {this.state.name}!</div>
+    if (role === 'user') {
+      return <div>Welcome back {name}!</div>
     }
-    return <div>Welcome aboard, {this.state.name}!</div>
+    return <div>Welcome aboard, {name}!</div>
   }
 
   render() {

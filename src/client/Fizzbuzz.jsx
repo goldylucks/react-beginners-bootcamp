@@ -12,14 +12,16 @@ class Fizzbuzz extends React.Component {
   }
 
   hitme() {
+    const { startingNumber, endingNumber, divisibleWord1, divisibleNumber1,
+      divisibleWord2, divisibleNumber2 } = this.state
     const result = []
-    for (let i = this.state.startingNumber; i < this.state.endingNumber; i += 1) {
-      if (i % this.state.divisibleNumber1 === 0 && i % this.state.divisibleNumber2 === 0) {
-        result.push(this.state.divisibleWord1 + this.state.divisibleWord2)
-      } else if (i % this.state.divisibleNumber1 === 0) {
-        result.push(this.state.divisibleWord1)
-      } else if (i % this.state.divisibleNumber2 === 0) {
-        result.push(this.state.divisibleWord2)
+    for (let i = startingNumber; i < endingNumber; i += 1) {
+      if (i % divisibleNumber1 === 0 && i % divisibleNumber2 === 0) {
+        result.push(divisibleWord1 + divisibleWord2)
+      } else if (i % divisibleNumber1 === 0) {
+        result.push(divisibleWord1)
+      } else if (i % divisibleNumber2 === 0) {
+        result.push(divisibleWord2)
       } else {
         result.push(i)
       }
@@ -37,6 +39,8 @@ class Fizzbuzz extends React.Component {
   }
 
   render() {
+    const { startingNumber, endingNumber, divisibleWord1, divisibleNumber1,
+      divisibleWord2, divisibleNumber2 } = this.state
     return (
       <div className="container app-container">
         <h2>Fizz buzz</h2>
@@ -52,12 +56,12 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="starting number"
-                    value={this.state.startingNumber}
+                    value={startingNumber}
                     onChange={evt => this.setState({ startingNumber: evt.target.value })}
                     max={10}
                   />
                 </div>
-                <h4><strong>startingNumber</strong>: {this.state.startingNumber}</h4>
+                <h4><strong>startingNumber</strong>: {startingNumber}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -67,12 +71,12 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="ending number"
-                    value={this.state.endingNumber}
+                    value={endingNumber}
                     onChange={evt => this.setState({ endingNumber: evt.target.value })}
                     max={50}
                   />
                 </div>
-                <h4><strong>endingNumber</strong>: {this.state.endingNumber}</h4>
+                <h4><strong>endingNumber</strong>: {endingNumber}</h4>
               </div>
             </div>
             <div className="row">
@@ -84,12 +88,12 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="divisible number #1"
-                    value={this.state.divisibleNumber1}
+                    value={divisibleNumber1}
                     onChange={evt => this.setState({ divisibleNumber1: evt.target.value })}
                     max={10}
                   />
                 </div>
-                <h4><strong>divisibleNumber1</strong>: {this.state.divisibleNumber1}</h4>
+                <h4><strong>divisibleNumber1</strong>: {divisibleNumber1}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -98,11 +102,11 @@ class Fizzbuzz extends React.Component {
                     id="divisible-word-1"
                     className="form-control"
                     placeholder="divisible word #1"
-                    value={this.state.divisibleWord1}
+                    value={divisibleWord1}
                     onChange={evt => this.setState({ divisibleWord1: evt.target.value })}
                   />
                 </div>
-                <h4><strong>divisibleWord1</strong>: {this.state.divisibleWord1}</h4>
+                <h4><strong>divisibleWord1</strong>: {divisibleWord1}</h4>
               </div>
             </div>
             <div className="row">
@@ -114,12 +118,12 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="divisible number #2"
-                    value={this.state.divisibleNumber2}
+                    value={divisibleNumber2}
                     onChange={evt => this.setState({ divisibleNumber2: evt.target.value })}
                     max={20}
                   />
                 </div>
-                <h4><strong>divisibleNumber2</strong>: {this.state.divisibleNumber2}</h4>
+                <h4><strong>divisibleNumber2</strong>: {divisibleNumber2}</h4>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
@@ -128,11 +132,11 @@ class Fizzbuzz extends React.Component {
                     id="divisible-word-2"
                     className="form-control"
                     placeholder="divisible word #2"
-                    value={this.state.divisibleWord2}
+                    value={divisibleWord2}
                     onChange={evt => this.setState({ divisibleWord2: evt.target.value })}
                   />
                 </div>
-                <h4><strong>divisibleWord2</strong>: {this.state.divisibleWord2}</h4>
+                <h4><strong>divisibleWord2</strong>: {divisibleWord2}</h4>
               </div>
             </div>
             <div className="row">

@@ -25,13 +25,14 @@ class Guessnumber extends React.Component {
   }
 
   renderOutput() {
-    if (!this.state.guessed) {
+    const { guessed, number } = this.state
+    if (!guessed) {
       return null
     }
-    if (this.state.guessed === this.state.number) {
-      return <div style={styles.success}>[{this.state.guessed}]: Bullseye!</div>
+    if (guessed === number) {
+      return <div style={styles.success}>[{guessed}]: Bullseye!</div>
     }
-    return <div style={styles.failure}>[{this.state.guessed}]: Too {this.state.guessed > this.state.number ? 'High' : 'Low'}...</div>
+    return <div style={styles.failure}>[{guessed}]: Too {guessed > number ? 'High' : 'Low'}...</div>
   }
 
   render() {

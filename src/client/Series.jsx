@@ -23,13 +23,14 @@ class Series extends React.Component {
   }
 
   renderAutocompleteResults() {
-    if (!this.state.query) {
+    const { query } = this.state
+    if (!query) {
       return null
     }
     return (
       <div style={styles.autocomplete}>
         {
-          series.filter(serie => serie.match(this.state.query))
+          series.filter(serie => serie.match(query))
           .map(serie => <div key={serie} style={styles.autocompleteRow}>{serie}</div>)
         }
       </div>
