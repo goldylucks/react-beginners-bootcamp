@@ -29,6 +29,14 @@ class FlipApp extends React.Component {
     return <div style={styles.failure}>{this.state.flipResult}: You lose!</div>
   }
 
+  guess(guessed) {
+    console.log('[guessed]:', guessed)
+  }
+
+  reset() {
+    console.log('[reset]')
+  }
+
   render() {
     return (
       <div className="container app-container">
@@ -38,13 +46,13 @@ class FlipApp extends React.Component {
             <h3>Controls</h3>
             <div className="row">
               <div className="col-md-4">
-                <button className="btn btn-primary btn-block">Heads</button>
+                <button className="btn btn-primary btn-block" onClick={() => this.guess('Heads')}>Heads</button>
               </div>
               <div className="col-md-4">
-                <button className="btn btn-primary btn-block">Tails</button>
+                <button className="btn btn-primary btn-block" onClick={() => this.guess('Tails')}>Tails</button>
               </div>
               <div className="col-md-4">
-                <button className="btn btn-default btn-block">Reset</button>
+                <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
               </div>
             </div>
           </div>
