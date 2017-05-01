@@ -12,11 +12,28 @@ class Fizzbuzz extends React.Component {
   }
 
   hitme() {
-    console.log('[hitme]')
+    const result = []
+    for (let i = this.state.startingNumber; i < this.state.endingNumber; i += 1) {
+      if (i % this.state.divisibleNumber1 === 0 && i % this.state.divisibleNumber2 === 0) {
+        result.push(this.state.divisibleWord1 + this.state.divisibleWord2)
+      } else if (i % this.state.divisibleNumber1 === 0) {
+        result.push(this.state.divisibleWord1)
+      } else if (i % this.state.divisibleNumber2 === 0) {
+        result.push(this.state.divisibleWord2)
+      } else {
+        result.push(i)
+      }
+    }
+    this.setState({ result })
   }
 
   reset() {
-    console.log('[reset]')
+    this.setState({ result: [] })
+  }
+
+  renderOutput() {
+    // eslint-disable-next-line react/no-array-index-key
+    return this.state.result.map((item, idx) => <div key={idx}>{item}</div>)
   }
 
   render() {
@@ -129,9 +146,7 @@ class Fizzbuzz extends React.Component {
           </div>
           <div className="col-md-2 col-md-offset-2">
             <h3>Output</h3>
-            <div className="well">
-              {this.state.result.map(item => <div>{item}</div>)}
-            </div>
+            <div className="well">{this.renderOutput()}</div>
           </div>
         </div>
       </div>

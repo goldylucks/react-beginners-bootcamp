@@ -21,14 +21,14 @@ class Guessnumber extends React.Component {
   }
 
   guess() {
-    console.log('[guess]')
+    this.setState({ guessed: Number(this.state.guessInput) })
   }
 
   renderOutput() {
     if (!this.state.guessed) {
       return null
     }
-    if (this.state.guessed === this.state.guessInput) {
+    if (this.state.guessed === this.state.number) {
       return <div style={styles.success}>[{this.state.guessed}]: Bullseye!</div>
     }
     return <div style={styles.failure}>[{this.state.guessed}]: Too {this.state.guessed > this.state.number ? 'High' : 'Low'}...</div>

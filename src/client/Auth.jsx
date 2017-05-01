@@ -10,11 +10,11 @@ class Auth extends React.Component {
   }
 
   login() {
-    console.log('[login]')
+    this.setState({ role: 'user', name: this.state.nameInput })
   }
 
   signup() {
-    console.log('[signup]')
+    this.setState({ role: 'newUser', name: this.state.nameInput })
   }
 
   renderOutput() {

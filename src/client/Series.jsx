@@ -1,6 +1,6 @@
 import React from 'react'
 
-// const series = ['Southpark', 'Mr. Robot', 'Seinfeld']
+const series = ['Southpark', 'Mr. Robot', 'Seinfeld']
 
 const styles = {
   autocomplete: {
@@ -22,8 +22,22 @@ class Series extends React.Component {
     selected: [],
   }
 
+  renderAutocompleteResults() {
+    if (!this.state.query) {
+      return null
+    }
+    return (
+      <div style={styles.autocomplete}>
+        {
+          series.filter(serie => serie.match(this.state.query))
+          .map(serie => <div key={serie} style={styles.autocompleteRow}>{serie}</div>)
+        }
+      </div>
+    )
+  }
+
   renderOutput() {
-    return this.state.selected.map(series => <div>{series}</div>)
+    return this.state.selected.map(serie => <div>{serie}</div>)
   }
 
   render() {
@@ -42,12 +56,7 @@ class Series extends React.Component {
               />
             </div>
             <h4><strong>query</strong>: {this.state.query}</h4>
-            <div style={styles.autocomplete}>
-              <div style={styles.autocompleteRow}>Southpark</div>
-              <div
-                style={Object.assign({}, styles.autocompleteRow, styles.autocompleteRowHighlighted)}
-              >Mr. Robot</div>
-            </div>
+            {this.renderAutocompleteResults()}
           </div>
           <div className="col-md-2 col-md-offset-2">
             <h3>Output</h3>
