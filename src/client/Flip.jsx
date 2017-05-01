@@ -20,11 +20,12 @@ class FlipApp extends React.Component {
   }
 
   guess(guessed) {
+    const { score } = this.state
     const flipResult = Math.random() > 0.5 ? 'Heads' : 'Tails'
     this.setState({
       guessed,
       flipResult,
-      score: flipResult === guessed ? this.state.score + 1 : this.state.score - 1,
+      score: flipResult === guessed ? score + 1 : score - 1,
     })
   }
 
@@ -33,13 +34,14 @@ class FlipApp extends React.Component {
   }
 
   renderOutput() {
-    if (!this.state.flipResult) {
+    const { flipResult, guessed } = this.state
+    if (!flipResult) {
       return null
     }
-    if (this.state.flipResult === this.state.guessed) {
-      return <div style={styles.success}>{this.state.flipResult}: You win!</div>
+    if (flipResult === guessed) {
+      return <div style={styles.success}>{flipResult}: You win!</div>
     }
-    return <div style={styles.failure}>{this.state.flipResult}: You lose!</div>
+    return <div style={styles.failure}>{flipResult}: You lose!</div>
   }
 
   render() {
