@@ -2,7 +2,6 @@
 
 ## TOC
 
-- [step 0 - set the stage](#step-0--set-the-stage)
 - [step 1 - scaffold (flip)](#step-1---scaffold-flip)
 - [step 2 - scaffold (rest)](#step-2---scaffold-rest)
 - [step 3 - first react component (flip)](#step-3---first-react-component-flip)
@@ -30,53 +29,44 @@
 - [step 25 - flow (flip)](#step-25---flow-flip)
 - [step 26 - flow (rest)](#step-26---flow-rest)
 
-## step 0 - set the stage
-Checkout a new local branch
-```bash
-$ git checkout -b module-1
-```
-create `src/client/index.html`:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>React Bootcamp | Adam Method</title>
-</head>scaffold
-<body>
-  <h1>html outside of react</h1>
-</body>
-</html>
-```
-
-create `src/client/index.jsx`:
-```jsx
-
-console.log('js loaded')
-
-```
-
-open chrome at `localhost:8000`, see the wecloming headline, and commit the changes:
-```bash
-$ git add src
-$ git commit -m "(module-1) step 0: set the stage"
-```
-
 ## step 1 - scaffold (Flip)
-in `src/client/index.html` add the following line after the `h1` title:
+modify `src/client/index.html`
 ```diff
-<h1>html outside of react</h1>
+<div id="root"></div>
 +<div id="flip-app"></div>
 ```
 
-modify `src/client/index.jsx` to:
-```jsx
+create `src/client/flip.jsx`
+```diff
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-ReactDOM.render(
-  <h2>Flip</h2>,
-  document.getElementById('flip-app'),
+const Flip = () => (
+  <h2>Flip</h2>
 )
+
+export default Flip
+```
+
+modify `src/client/client.jsx`
+```diff
+import App from './App'
++import Flip from './Flip'
+
+render(App)
++render(Flip)
+
+if (module.hot) {
+  // ...
+}
+
++if (module.hot) {
++  // flow-disable-next-line
++  module.hot.accept('./Flip', () => {
++    // eslint-disable-next-line global-require
++    const nextFlip = require('./Flip').default
++    render(nextApp)
++  })
++}
 
 ```
 
@@ -132,7 +122,7 @@ $ git commit -m "(module-1) step 4: first react component (Rest)"
 
 ## step 5 - separate app to own file (Flip)
 create file `src/client/Flip.jsx`:
-```jsx
+```diff
 import React from 'react'
 
 const FlipApp = () => <h1>Flip!</h1>
@@ -243,7 +233,7 @@ import { AppContainer } from 'react-hot-loader'
 ```
 in `src/client/Flip.jsx`
 add styles and mock the UI of the app:
-```jsx
+```diff
 const styles = {
   score: {
     color: 'green',
@@ -367,7 +357,7 @@ Your commit should fail due to linting errors. add the no verify flag: to work a
 
 ## Step 13 - state conditional rendering (Flip)
 modify `src/client/Flip.jsx`:
-```jsx
+```diff
 class FlipApp extends React.Component {
   state = {...}
 
@@ -592,7 +582,7 @@ $ git commit -m "(module-1) step 22: ES6 destructuring (Flip)"
 
 ## Step 23 - Extract App component (Flip)
 Seems like all our apps follow this structure:
-```jsx
+```diff
 <div className="container app-container">
   <h2>APPNAME</h2>
   <div className="row">
@@ -610,7 +600,7 @@ Seems like all our apps follow this structure:
 </div>
 ```
 So for each app we need to pass to appname, controls, and output. The rest (layout) can be offloaded to a reusable App component. Let's create it at `src/client/App.jsx`:
-```jsx
+```diff
 import React from 'react'
 
 const App = ({ appName, controls, output }) =>

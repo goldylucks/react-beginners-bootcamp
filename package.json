@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "yarn dev:start",
+    "start": "yarn dev:wds",
     "dev:start": "nodemon src/server --exec babel-node",
     "dev:wds": "webpack-dev-server --progress",
     "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
