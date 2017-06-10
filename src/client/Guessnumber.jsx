@@ -1,7 +1,9 @@
 import React from 'react'
 
+import App from './App'
+
 const Guessnumber = () => (
-  <h2>Guessnumber</h2>
+  <App title="Guessnumber" />
 )
 
 export default Guessnumber
