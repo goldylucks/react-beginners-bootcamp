@@ -1,6 +1,10 @@
 import React from 'react'
 
-const App = ({ title }) => (
+type Props = {
+  title: string,
+}
+
+const App = ({ title }: Props) => (
   <h1>{ title }</h1>
 )
 
