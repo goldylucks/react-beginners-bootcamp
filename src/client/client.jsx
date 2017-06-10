@@ -45,7 +45,7 @@ if (module.hot) {
   // flow-disable-next-line
   module.hot.accept('./Guessnumber', () => {
     // eslint-disable-next-line global-require
-    const nextGuessnumber = require('./Flip').default
+    const nextGuessnumber = require('./Guessnumber').default
     render(nextGuessnumber, 'guessnumber')
   })
 }
@@ -54,8 +54,8 @@ if (module.hot) {
   // flow-disable-next-line
   module.hot.accept('./Fizzbuzz', () => {
     // eslint-disable-next-line global-require
-    const nextGuessnumber = require('./Guessnumber').default
-    render(nextGuessnumber, 'guessnumber')
+    const nextFizzbuzz = require('./Fizzbuzz').default
+    render(nextFizzbuzz, 'fizzbuzz')
   })
 }
 
