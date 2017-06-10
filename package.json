@@ -7,7 +7,7 @@
     "prod:start": "cross-env NODE_ENV=production PORT=8001 node lib/server",
     "lint": "eslint src webpack.config.babel.js",
     "lint:fix": "yarn lint -- --fix",
-    "lint-staged": "eslint src webpack.config.babel.js --ext .js,.jsx",
+    "lint-staged": "lint-staged",
     "lintstyle": "stylelint src/**/*.css public/css/style.css",
     "lintstyle:fix": "stylefmt -r src/**/*.css public/css/style.css"
   },
@@ -67,6 +67,7 @@
     "git-scripts": "^0.2.1",
     "html-webpack-plugin": "^2.28.0",
     "jest": "^19.0.2",
+    "lint-staged": "^3.6.1",
     "local-web-server": "^1.2.7",
     "nodemon": "^1.11.0",
     "rimraf": "^2.6.1",
