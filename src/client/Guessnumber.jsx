@@ -18,6 +18,11 @@ class Guessnumber extends React.Component {
     guessedNumberInput: '',
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  guess() {
+    console.log('guess')
+  }
+
   renderOutput() {
     if (this.state.targetNumber > this.state.guessedNumber) {
       return <div style={styles.failure}>Too low ...</div>
@@ -44,7 +49,7 @@ class Guessnumber extends React.Component {
               onChange={evt => this.setState({ guessedNumberInput: evt.target.value })}
             />
             <span className="input-group-btn">
-              <button className="btn btn-primary">Guess</button>
+              <button className="btn btn-primary" onClick={() => this.guess()}>Guess</button>
             </span>
           </div>
         }

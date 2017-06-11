@@ -2,8 +2,6 @@ import React from 'react'
 
 import App from './App'
 
-const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
-
 class Fizzbuzz extends React.Component {
   state = {
     startingNumber: 1,
@@ -19,6 +17,16 @@ class Fizzbuzz extends React.Component {
     divisibleWord2: 'Buzz',
     divisibleWord2Input: 'Buzz',
     outputStrings: [],
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  hitme() {
+    console.log('hitme!')
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  reset() {
+    console.log('reset')
   }
 
   renderOutput() {
@@ -122,10 +130,10 @@ class Fizzbuzz extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button className="btn btn-primary btn-block">Hit me!</button>
+                <button className="btn btn-primary btn-block" onClick={() => this.hitme()}>Hit me!</button>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-default btn-block">Reset</button>
+                <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
               </div>
             </div>
           </div>
