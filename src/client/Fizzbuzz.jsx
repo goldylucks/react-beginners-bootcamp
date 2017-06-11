@@ -6,31 +6,30 @@ const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
 
 class Fizzbuzz extends React.Component {
   state = {
-    startingNumber: 1,
-    startingNumberInput: 1,
-    endingNumber: 15,
-    endingNumberInput: 15,
-    divisibleNumber1: 3,
-    divisibleNumber1Input: 3,
+    startingNumber: '1',
+    endingNumber: '15',
+    divisibleNumber1: '3',
     divisibleWord1: 'Fizz',
-    divisibleWord1Input: 'Fizz',
-    divisibleNumber2: 5,
-    divisibleNumber2Input: 5,
+    divisibleNumber2: '5',
     divisibleWord2: 'Buzz',
-    divisibleWord2Input: 'Buzz',
     outputStrings: [],
   }
 
   hitme() {
+    const startingNumber = Number(this.state.startingNumber)
+    const endingNumber = Number(this.state.endingNumber)
+    const divisibleNumber1 = Number(this.state.divisibleNumber1)
+    const divisibleNumber2 = Number(this.state.divisibleNumber2)
+    const { divisibleWord1, divisibleWord2 } = this.state
     const outputStrings = []
-    for (let i = this.state.startingNumber; i <= this.state.endingNumber; i += 1) {
-      if (isDivisible(i, this.state.divisibleNumber2) &&
-        isDivisible(i, this.state.divisibleNumber2)) {
-        outputStrings.push(this.state.divisibleWord1 + this.state.divisibleWord2)
-      } else if (isDivisible(i, this.state.divisibleNumber1)) {
-        outputStrings.push(this.state.divisibleWord1)
-      } else if (isDivisible(i, this.state.divisibleNumber2)) {
-        outputStrings.push(this.state.divisibleWord2)
+    for (let i = startingNumber; i <= endingNumber; i += 1) {
+      if (isDivisible(i, divisibleNumber2) &&
+        isDivisible(i, divisibleNumber2)) {
+        outputStrings.push(divisibleWord1 + divisibleWord2)
+      } else if (isDivisible(i, divisibleNumber1)) {
+        outputStrings.push(divisibleWord1)
+      } else if (isDivisible(i, divisibleNumber2)) {
+        outputStrings.push(divisibleWord2)
       } else {
         outputStrings.push(i)
       }
@@ -78,8 +77,8 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="ending number"
-                    value={this.state.endingNumberInput}
-                    onChange={evt => this.setState({ endingNumberInput: evt.target.value })}
+                    value={this.state.endingNumber}
+                    onChange={evt => this.setState({ endingNumber: evt.target.value })}
                     max={50}
                   />
                 </div>
@@ -94,8 +93,8 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="divisible number #1"
-                    value={this.state.divisibleNumber1Input}
-                    onChange={evt => this.setState({ divisibleNumber1Input: evt.target.value })}
+                    value={this.state.divisibleNumber1}
+                    onChange={evt => this.setState({ divisibleNumber1: evt.target.value })}
                     max={10}
                   />
                 </div>
@@ -107,8 +106,8 @@ class Fizzbuzz extends React.Component {
                     id="divisible-word-1"
                     className="form-control"
                     placeholder="divisible word #1"
-                    value={this.state.divisibleWord1Input}
-                    onChange={evt => this.setState({ divisibleWord1Input: evt.target.value })}
+                    value={this.state.divisibleWord1}
+                    onChange={evt => this.setState({ divisibleWord1: evt.target.value })}
                   />
                 </div>
               </div>
@@ -122,8 +121,8 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     type="number"
                     placeholder="divisible number #2"
-                    value={this.state.divisibleNumber2Input}
-                    onChange={evt => this.setState({ divisibleNumber2Input: evt.target.value })}
+                    value={this.state.divisibleNumber2}
+                    onChange={evt => this.setState({ divisibleNumber2: evt.target.value })}
                     max={20}
                   />
                 </div>
@@ -135,8 +134,8 @@ class Fizzbuzz extends React.Component {
                     id="divisible-word-2"
                     className="form-control"
                     placeholder="divisible word #2"
-                    value={this.state.divisibleWord2Input}
-                    onChange={evt => this.setState({ divisibleWord2Input: evt.target.value })}
+                    value={this.state.divisibleWord2}
+                    onChange={evt => this.setState({ divisibleWord2: evt.target.value })}
                   />
                 </div>
               </div>
