@@ -16,6 +16,16 @@ class Flip extends React.Component {
     score: 0,
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  guess(guessed) {
+    console.log('you guessed', guessed)
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  reset() {
+    console.log('you reset!')
+  }
+
   renderOutput() {
     if (!this.state.flipResult) {
       return null
@@ -33,13 +43,13 @@ class Flip extends React.Component {
         controls={
           <div className="row">
             <div className="col-md-4">
-              <button className="btn btn-primary btn-block">Heads</button>
+              <button className="btn btn-primary btn-block" onClick={() => this.guess('Heads')}>Heads</button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-primary btn-block">Tails</button>
+              <button className="btn btn-primary btn-block" onClick={() => this.guess('Tails')}>Tails</button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-default btn-block">Reset</button>
+              <button className="btn btn-default btn-block" onClick={() => this.reset()}>Reset</button>
             </div>
           </div>
         }
