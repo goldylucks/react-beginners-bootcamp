@@ -16,14 +16,21 @@ class Flip extends React.Component {
     score: 0,
   }
 
-  // eslint-disable-next-line class-methods-use-this
   guess(guessed) {
-    console.log('you guessed', guessed)
+    const flipResult = Math.random() > 0.5 ? 'Heads' : 'Tails'
+    this.setState({
+      guessed,
+      flipResult,
+      score: flipResult === guessed ? this.state.score + 1 : this.state.score - 1,
+    })
   }
 
-  // eslint-disable-next-line class-methods-use-this
   reset() {
-    console.log('you reset!')
+    this.setState({
+      score: 0,
+      guessed: '',
+      flipResult: '',
+    })
   }
 
   renderOutput() {
