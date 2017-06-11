@@ -26,7 +26,12 @@ class Auth extends React.Component {
           <div>
             <div className="row">
               <div className="col-md-12 form-group">
-                <input placeholder="Name" className="form-control" />
+                <input
+                  placeholder="Name"
+                  className="form-control"
+                  value={this.state.name}
+                  onChange={evt => this.setState({ name: evt.target.value })}
+                />
               </div>
             </div>
             <div className="row">
