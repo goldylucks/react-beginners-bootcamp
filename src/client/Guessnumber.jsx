@@ -14,6 +14,18 @@ const styles = {
 class Guessnumber extends React.Component {
   state = {
     targetNumber: 73,
+    guessedNumber: 20,
+  }
+
+  renderOutput() {
+    if (this.state.targetNumber > this.state.guessedNumber) {
+      return <div style={styles.failure}>Too low ...</div>
+    }
+    if (this.state.targetNumber < this.state.guessedNumber) {
+      return <div style={styles.failure}>Too High ...</div>
+    }
+
+    return <div style={styles.success}>Success! The number is {this.state.targetNumber}</div>
   }
   render() {
     return (
@@ -27,13 +39,7 @@ class Guessnumber extends React.Component {
             </span>
           </div>
         }
-        output={
-          <div>
-            <div style={styles.failure}>Too low ...</div>
-            <div style={styles.failure}>Too high ...</div>
-            <div style={styles.success}>Success! The number is {this.state.targetNumber}</div>
-          </div>
-        }
+        output={this.renderOutput()}
       />
     )
   }

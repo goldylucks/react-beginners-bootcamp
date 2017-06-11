@@ -4,8 +4,18 @@ import App from './App'
 
 class Auth extends React.Component {
   state = {
-    role: 'guest',
+    role: 'user',
     name: 'Spidy',
+  }
+
+  renderOutput() {
+    if (this.state.role === 'guest') {
+      return <p>Hello guest</p>
+    }
+    if (this.state.role === 'user') {
+      return <p>Welcome back {this.state.name}</p>
+    }
+    return <p>Welcome aboard {this.state.name}!</p>
   }
 
   render() {
@@ -39,13 +49,7 @@ class Auth extends React.Component {
             </div>
           </div>
         }
-        output={
-          <div>
-            <p>Hello guest</p>
-            <p>Welcome back {this.state.name}</p>
-            <p>Welcome aboard {this.state.name}!</p>
-          </div>
-        }
+        output={this.renderOutput()}
       />
     )
   }

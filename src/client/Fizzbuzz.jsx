@@ -2,6 +2,8 @@ import React from 'react'
 
 import App from './App'
 
+const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
+
 class Fizzbuzz extends React.Component {
   state = {
     startingNumber: 1,
@@ -9,8 +11,33 @@ class Fizzbuzz extends React.Component {
     divisibleNumber1: 3,
     divisibleWord1: 'Fizz',
     divisibleNumber2: 5,
-    divisibleWord2: 'Number',
+    divisibleWord2: 'Buzz',
+    shouldDisplay: true,
   }
+
+  renderOutput() {
+    if (!this.state.shouldDisplay) {
+      return null
+    }
+    const outputStrings = []
+    for (let i = this.state.startingNumber; i <= this.state.endingNumber; i += 1) {
+      if (isDivisible(i, this.state.divisibleNumber2) &&
+        isDivisible(i, this.state.divisibleNumber2)) {
+        outputStrings.push(this.state.divisibleWord1 + this.state.divisibleWord2)
+      } else if (isDivisible(i, this.state.divisibleNumber1)) {
+        outputStrings.push(this.state.divisibleWord1)
+      } else if (isDivisible(i, this.state.divisibleNumber2)) {
+        outputStrings.push(this.state.divisibleWord2)
+      } else {
+        outputStrings.push(i)
+      }
+    }
+    return outputStrings.map((str, idx) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <div key={idx}>{str}</div>
+    ))
+  }
+
   render() {
     return (
       <App
@@ -69,24 +96,7 @@ class Fizzbuzz extends React.Component {
             </div>
           </div>
         }
-        output={
-          <div>
-            <div>2</div>
-            <div>Fizz</div>
-            <div>4</div>
-            <div>Buzz</div>
-            <div>Fizz</div>
-            <div>7</div>
-            <div>8</div>
-            <div>Fizz</div>
-            <div>Buzz</div>
-            <div>11</div>
-            <div>Fizz</div>
-            <div>13</div>
-            <div>14</div>
-            <div>FizzBuzz</div>
-          </div>
-        }
+        output={this.renderOutput()}
       />
     )
   }
