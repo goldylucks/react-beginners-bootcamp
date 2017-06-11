@@ -15,6 +15,7 @@ class Guessnumber extends React.Component {
   state = {
     targetNumber: 73,
     guessedNumber: 20,
+    guessedNumberInput: '',
   }
 
   renderOutput() {
@@ -33,7 +34,15 @@ class Guessnumber extends React.Component {
         title="Guessnumber"
         controls={
           <div className="input-group">
-            <input className="form-control" type="number" placeholder="Place your guess here" min={1} max={100} />
+            <input
+              className="form-control"
+              type="number"
+              placeholder="Place your guess here"
+              min={1}
+              max={100}
+              value={this.state.guessedNumberInput}
+              onChange={evt => this.setState({ guessedNumberInput: evt.target.value })}
+            />
             <span className="input-group-btn">
               <button className="btn btn-primary">Guess</button>
             </span>

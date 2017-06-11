@@ -3,7 +3,7 @@ import React from 'react'
 type Props = {
   title: string,
   controls: Object,
-  output: ?Object,
+  output: ?any,
 }
 
 const App = ({ title, controls, output }: Props) => (
