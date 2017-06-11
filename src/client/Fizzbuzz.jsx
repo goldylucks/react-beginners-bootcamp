@@ -2,6 +2,8 @@ import React from 'react'
 
 import App from './App'
 
+const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
+
 class Fizzbuzz extends React.Component {
   state = {
     startingNumber: 1,
@@ -19,14 +21,25 @@ class Fizzbuzz extends React.Component {
     outputStrings: [],
   }
 
-  // eslint-disable-next-line class-methods-use-this
   hitme() {
-    console.log('hitme!')
+    const outputStrings = []
+    for (let i = this.state.startingNumber; i <= this.state.endingNumber; i += 1) {
+      if (isDivisible(i, this.state.divisibleNumber2) &&
+        isDivisible(i, this.state.divisibleNumber2)) {
+        outputStrings.push(this.state.divisibleWord1 + this.state.divisibleWord2)
+      } else if (isDivisible(i, this.state.divisibleNumber1)) {
+        outputStrings.push(this.state.divisibleWord1)
+      } else if (isDivisible(i, this.state.divisibleNumber2)) {
+        outputStrings.push(this.state.divisibleWord2)
+      } else {
+        outputStrings.push(i)
+      }
+    }
+    this.setState({ outputStrings })
   }
 
-  // eslint-disable-next-line class-methods-use-this
   reset() {
-    console.log('reset')
+    this.setState({ outputStrings: [] })
   }
 
   renderOutput() {

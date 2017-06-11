@@ -4,18 +4,22 @@ import App from './App'
 
 class Auth extends React.Component {
   state = {
-    role: 'user',
-    name: 'Spidy',
+    role: 'guest',
+    nameInput: 'Spidy',
   }
 
-  // eslint-disable-next-line class-methods-use-this
   signup() {
-    console.log('signup')
+    this.setState({
+      name: this.state.nameInput,
+      role: 'newUser',
+    })
   }
 
-  // eslint-disable-next-line class-methods-use-this
   login() {
-    console.log('signup')
+    this.setState({
+      name: this.state.nameInput,
+      role: 'user',
+    })
   }
 
   renderOutput() {
@@ -39,8 +43,8 @@ class Auth extends React.Component {
                 <input
                   placeholder="Name"
                   className="form-control"
-                  value={this.state.name}
-                  onChange={evt => this.setState({ name: evt.target.value })}
+                  value={this.state.nameInput}
+                  onChange={evt => this.setState({ nameInput: evt.target.value })}
                 />
               </div>
             </div>

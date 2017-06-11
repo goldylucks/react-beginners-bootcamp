@@ -2,6 +2,8 @@ import React from 'react'
 
 import App from './App'
 
+const randomNumberBetween = (n1, n2) => Math.floor((Math.random() * (n2 - n1)) + 1) + (1 - n1)
+
 const styles = {
   success: {
     color: 'limegreen ',
@@ -13,17 +15,21 @@ const styles = {
 
 class Guessnumber extends React.Component {
   state = {
-    targetNumber: 73,
-    guessedNumber: 20,
+    targetNumber: randomNumberBetween(1, 100),
+    guessedNumber: null,
     guessedNumberInput: '',
   }
 
-  // eslint-disable-next-line class-methods-use-this
   guess() {
-    console.log('guess')
+    this.setState({
+      guessedNumber: this.state.guessedNumberInput,
+    })
   }
 
   renderOutput() {
+    if (!this.state.guessedNumber) {
+      return null
+    }
     if (this.state.targetNumber > this.state.guessedNumber) {
       return <div style={styles.failure}>Too low ...</div>
     }
