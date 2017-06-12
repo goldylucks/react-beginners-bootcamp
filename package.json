@@ -13,13 +13,13 @@
   },
   "git": {
     "scripts": {
-      "pre-commit": "yarn lint-staged",
+      "pre-commit": "yarn lint-staged && yarn flow",
       "pre-push": "yarn lint"
     }
   },
   "lint-staged": {
     "webpack.config.babel.js": "eslint",
-    "src": "eslint"
+    "src/**/*.{js,jsx}": "eslint"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
