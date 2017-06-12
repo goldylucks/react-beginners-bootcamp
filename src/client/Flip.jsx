@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
@@ -14,9 +16,11 @@ const styles = {
 class Flip extends React.Component {
   state = {
     score: 0,
+    flipResult: '',
+    guessed: '',
   }
 
-  guess(guessed) {
+  guess(guessed: string) {
     const { score } = this.state
     const flipResult = Math.random() > 0.5 ? 'Heads' : 'Tails'
     this.setState({
