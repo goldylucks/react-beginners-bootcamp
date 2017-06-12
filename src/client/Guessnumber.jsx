@@ -1,8 +1,10 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
 
-const randomNumberBetween = (n1, n2) => Math.floor((Math.random() * (n2 - n1)) + 1) + (1 - n1)
+const randomNumberBetween = (min, max) => Math.floor((Math.random() * (max - min)) + 1) + min
 
 const styles = {
   success: {
@@ -16,13 +18,13 @@ const styles = {
 class Guessnumber extends React.Component {
   state = {
     targetNumber: randomNumberBetween(1, 100),
-    guessedNumber: null,
+    guessedNumber: 0,
     guessedNumberInput: '',
   }
 
   guess() {
     this.setState({
-      guessedNumber: this.state.guessedNumberInput,
+      guessedNumber: Number(this.state.guessedNumberInput),
     })
   }
 

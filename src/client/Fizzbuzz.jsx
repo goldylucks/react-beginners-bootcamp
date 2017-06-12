@@ -1,8 +1,28 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
 
 const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
+const getFizzbuzzStrings = (startingNumber, endingNumber, divisibleWord1,
+  divisibleNumber1, divisibleWord2, divisibleNumber2) => {
+  const outputStrings = []
+  for (let i = startingNumber; i <= endingNumber; i += 1) {
+    if (isDivisible(i, divisibleNumber2) &&
+    isDivisible(i, divisibleNumber2)) {
+      outputStrings.push(divisibleWord1 + divisibleWord2)
+    } else if (isDivisible(i, divisibleNumber1)) {
+      outputStrings.push(divisibleWord1)
+    } else if (isDivisible(i, divisibleNumber2)) {
+      outputStrings.push(divisibleWord2)
+    } else {
+      outputStrings.push(i)
+    }
+  }
+  return outputStrings
+}
+
 
 class Fizzbuzz extends React.Component {
   state = {
@@ -16,24 +36,16 @@ class Fizzbuzz extends React.Component {
   }
 
   hitme() {
-    const startingNumber = Number(this.state.startingNumber)
-    const endingNumber = Number(this.state.endingNumber)
-    const divisibleNumber1 = Number(this.state.divisibleNumber1)
-    const divisibleNumber2 = Number(this.state.divisibleNumber2)
-    const { divisibleWord1, divisibleWord2 } = this.state
-    const outputStrings = []
-    for (let i = startingNumber; i <= endingNumber; i += 1) {
-      if (isDivisible(i, divisibleNumber2) &&
-        isDivisible(i, divisibleNumber2)) {
-        outputStrings.push(divisibleWord1 + divisibleWord2)
-      } else if (isDivisible(i, divisibleNumber1)) {
-        outputStrings.push(divisibleWord1)
-      } else if (isDivisible(i, divisibleNumber2)) {
-        outputStrings.push(divisibleWord2)
-      } else {
-        outputStrings.push(i)
-      }
-    }
+    const { startingNumber, endingNumber, divisibleWord1,
+      divisibleNumber1, divisibleWord2, divisibleNumber2 } = this.state
+    const outputStrings = getFizzbuzzStrings(
+      Number(startingNumber),
+      Number(endingNumber),
+      divisibleWord1,
+      Number(divisibleNumber1),
+      divisibleWord2,
+      Number(divisibleNumber2),
+    )
     this.setState({ outputStrings })
   }
 

@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
@@ -5,7 +7,8 @@ import App from './App'
 class Auth extends React.Component {
   state = {
     role: 'guest',
-    nameInput: 'Spidy',
+    name: '',
+    nameInput: '',
   }
 
   signup() {
