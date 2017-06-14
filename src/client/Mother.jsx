@@ -34,7 +34,7 @@ class Mother extends React.Component {
     const { role, name } = this.state
     return (
       <div>
-        <Nav />
+        <Nav role={role} name={name} />
         <Switch>
           <Route exact path="/" component={() => <h1>Mother knows best dear</h1>} />
           <Route path="/flip" component={Flip} />

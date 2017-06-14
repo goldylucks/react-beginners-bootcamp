@@ -3,7 +3,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Nav = () => (
+type Props = {
+  role: string,
+  name: string,
+}
+
+const Nav = ({ role, name }: Props) => (
   <nav className="navbar navbar-default">
     <div className="container">
       <ul className="nav navbar-nav">
@@ -13,6 +18,11 @@ const Nav = () => (
         <li><NavLink to="/fizzbuzz">Fizzbuzz</NavLink></li>
         <li><NavLink to="/auth">Auth</NavLink></li>
       </ul>
+      <div className="navbar-text navbar-right">
+        { role === 'guest' && 'Hello guest!' }
+        { role === 'user' && `Welcome back ${name}` }
+        { role === 'newUser' && `Welcome aboard ${name}` }
+      </div>
     </div>
   </nav>
 )
