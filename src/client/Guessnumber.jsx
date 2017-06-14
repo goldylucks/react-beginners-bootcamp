@@ -4,8 +4,6 @@ import React from 'react'
 
 import App from './App'
 
-const randomNumberBetween = (min, max) => Math.floor((Math.random() * (max - min)) + 1) + min
-
 const styles = {
   success: {
     color: 'limegreen ',
@@ -15,21 +13,25 @@ const styles = {
   },
 }
 
+type Props = {
+  guessedNumber: number,
+  targetNumber: number,
+  onGuess: Function,
+}
+
 class Guessnumber extends React.Component {
   state = {
-    targetNumber: randomNumberBetween(1, 100),
-    guessedNumber: 0,
     guessedNumberInput: '',
   }
 
+  props: Props
+
   guess() {
-    this.setState({
-      guessedNumber: Number(this.state.guessedNumberInput),
-    })
+    this.props.onGuess(Number(this.state.guessedNumberInput))
   }
 
   renderOutput() {
-    const { guessedNumber, targetNumber } = this.state
+    const { guessedNumber, targetNumber } = this.props
     if (!guessedNumber) {
       return null
     }

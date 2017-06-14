@@ -13,29 +13,36 @@ const styles = {
   },
 }
 
+type Props = {
+  score: number,
+  onGuess: Function,
+  onReset: Function,
+}
+
 class Flip extends React.Component {
   state = {
-    score: 0,
     flipResult: '',
     guessed: '',
   }
 
+  props: Props
+
   guess(guessed: string) {
-    const { score } = this.state
+    const { score } = this.props
     const flipResult = Math.random() > 0.5 ? 'Heads' : 'Tails'
     this.setState({
       guessed,
       flipResult,
-      score: flipResult === guessed ? score + 1 : score - 1,
     })
+    this.props.onGuess(flipResult === guessed ? score + 1 : score - 1)
   }
 
   reset() {
     this.setState({
-      score: 0,
       guessed: '',
       flipResult: '',
     })
+    this.props.onReset()
   }
 
   renderOutput() {
@@ -68,7 +75,7 @@ class Flip extends React.Component {
         }
         output={
           <div>
-            <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+            <span style={{ color: 'green' }}>Score: <strong>{this.props.score}</strong></span>
             { this.renderOutput() }
           </div>
         }

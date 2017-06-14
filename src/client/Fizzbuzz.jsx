@@ -23,6 +23,11 @@ const getFizzbuzzStrings = (startingNumber, endingNumber, divisibleWord1,
   return outputStrings
 }
 
+type Props = {
+  outputStrings: Array<string>,
+  onHitme: Function,
+  onReset: Function,
+}
 
 class Fizzbuzz extends React.Component {
   state = {
@@ -35,6 +40,8 @@ class Fizzbuzz extends React.Component {
     outputStrings: [],
   }
 
+  props: Props
+
   hitme() {
     const { startingNumber, endingNumber, divisibleWord1,
       divisibleNumber1, divisibleWord2, divisibleNumber2 } = this.state
@@ -46,15 +53,15 @@ class Fizzbuzz extends React.Component {
       divisibleWord2,
       Number(divisibleNumber2),
     )
-    this.setState({ outputStrings })
+    this.props.onHitme(outputStrings)
   }
 
   reset() {
-    this.setState({ outputStrings: [] })
+    this.props.onReset()
   }
 
   renderOutput() {
-    return this.state.outputStrings.map((str, idx) => (
+    return this.props.outputStrings.map((str, idx) => (
       // eslint-disable-next-line react/no-array-index-key
       <div key={idx}>{str}</div>
     ))

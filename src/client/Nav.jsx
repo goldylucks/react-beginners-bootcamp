@@ -17,6 +17,7 @@ const Nav = ({ role, name }: Props) => (
         <li><NavLink to="/guessnumber">Guessnumber</NavLink></li>
         <li><NavLink to="/fizzbuzz">Fizzbuzz</NavLink></li>
         <li><NavLink to="/auth">Auth</NavLink></li>
+        <li><NavLink to="/stats">Stats</NavLink></li>
       </ul>
       <div className="navbar-text navbar-right">
         { role === 'guest' && 'Hello guest!' }
