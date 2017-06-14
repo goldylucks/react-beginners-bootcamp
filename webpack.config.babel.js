@@ -34,6 +34,7 @@ export default {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
+    historyApiFallback: true,
     port: WDS_PORT,
     hot: true,
   },

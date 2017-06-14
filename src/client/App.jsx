@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import 'prop-types'
+
 type Props = {
   title: string,
   controls: Object,
