@@ -2,17 +2,21 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'redux'
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import Welcome from './Welcome'
 import Mother from './Mother'
+import initStore from './initStore'
 
 const render = (AppComponent, appname) => {
   ReactDOM.render(
-    <BrowserRouter>
-      <AppComponent />
-    </BrowserRouter>,
+    <Provider store={initStore()}>
+      <BrowserRouter>
+        <AppComponent />
+      </BrowserRouter>
+    </Provider>,
     document.querySelector(`#${appname}-app`),
   )
 }
