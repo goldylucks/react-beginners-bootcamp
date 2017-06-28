@@ -12,12 +12,11 @@ import Auth from './Auth'
 const render = (AppComponent, selectorName) => {
   ReactDOM.render(
     <AppComponent />,
-    // flow-disable-next-line
     document.querySelector(selectorName),
   )
 }
 
-render(Welcome, '#root')
+render(Welcome, '#welcome-app')
 render(Flip, '#flip-app')
 render(Guessnumber, '#guessnumber-app')
 render(Fizzbuzz, '#fizzbuzz-app')
@@ -27,31 +26,31 @@ if (module.hot) {
   // flow-disable-next-line
   module.hot.accept('./Welcome', () => {
     // eslint-disable-next-line global-require
-    const nextApp = require('./Welcome').default
-    render(nextApp)
+    const nextWelcome = require('./Welcome').default
+    render(nextWelcome, '#welcome-app')
   })
   // flow-disable-next-line
   module.hot.accept('./Flip', () => {
     // eslint-disable-next-line global-require
     const nextFlip = require('./Flip').default
-    render(nextFlip)
+    render(nextFlip, '#flip-app')
   })
   // flow-disable-next-line
   module.hot.accept('./Guessnumber', () => {
     // eslint-disable-next-line global-require
     const nextGuessnumber = require('./Guessnumber').default
-    render(nextGuessnumber)
+    render(nextGuessnumber, '#guessnumber-app')
   })
   // flow-disable-next-line
   module.hot.accept('./Fizzbuzz', () => {
     // eslint-disable-next-line global-require
     const nextFizzbuzz = require('./Fizzbuzz').default
-    render(nextFizzbuzz)
+    render(nextFizzbuzz, '#fizzbuzz-app')
   })
   // flow-disable-next-line
   module.hot.accept('./Auth', () => {
     // eslint-disable-next-line global-require
     const nextAuth = require('./Auth').default
-    render(nextAuth)
+    render(nextAuth, '#auth-app')
   })
 }
