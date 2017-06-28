@@ -1,4 +1,6 @@
 /* eslint-disable */
+const noop = () => {}
+
 const randomNumberBetween = (min, max) => (Math.floor((Math.random() * (max - min)) + 1) + min)
 
 const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
