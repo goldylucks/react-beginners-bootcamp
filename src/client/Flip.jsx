@@ -7,27 +7,17 @@ class Flip extends React.Component {
   state = {
     score: 0,
     guessed: '',
-    flipResult: 'Heads',
+    flipResult: '',
   }
 
   renderOutput() {
     if (!this.state.guessed) {
-      return <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+      return null
     }
     if (this.state.guessed === this.state.flipResult) {
-      return (
-        <div>
-          <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
-          <div style={{ color: 'limegreen' }}>{this.state.flipResult}: you win!</div>
-        </div>
-      )
+      return <div style={{ color: 'limegreen' }}>{this.state.flipResult}: you win!</div>
     }
-    return (
-      <div>
-        <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
-        <div style={{ color: 'red' }}>{this.state.flipResult}: you lose!</div>
-      </div>
-    )
+    return <div style={{ color: 'red' }}>{this.state.flipResult}: you lose!</div>
   }
 
   render() {
@@ -47,7 +37,12 @@ class Flip extends React.Component {
             </div>
           </div>
         }
-        output={this.renderOutput()}
+        output={
+          <div>
+            <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+            {this.renderOutput()}
+          </div>
+        }
       />
     )
   }

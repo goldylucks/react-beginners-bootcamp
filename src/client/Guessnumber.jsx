@@ -7,8 +7,18 @@ import App from './App'
 class Guessnumber extends React.Component {
 
   state = {
-    guessedNumber: 75,
+    guessedNumber: 71,
     targetNumber: 75,
+  }
+
+  renderOutput() {
+    if (this.state.guessedNumber > this.state.targetNumber) {
+      return <div style={{ color: 'red' }}>[{this.state.guessedNumber}] Too high ...</div>
+    }
+    if (this.state.guessedNumber < this.state.targetNumber) {
+      return <div style={{ color: 'red' }}>[{this.state.guessedNumber}] Too low ...</div>
+    }
+    return <div style={{ color: 'limegreen' }}>[{this.state.guessedNumber}] Success! The number is { this.state.targetNumber }</div>
   }
 
   render() {
@@ -23,13 +33,7 @@ class Guessnumber extends React.Component {
             </span>
           </div>
         }
-        output={
-          <div>
-            <div style={{ color: 'red' }}>Too low ...</div>
-            <div style={{ color: 'red' }}>Too high ...</div>
-            <div style={{ color: 'limegreen' }}>Success! The number is { this.state.targetNumber }</div>
-          </div>
-        }
+        output={this.renderOutput()}
       />
     )
   }

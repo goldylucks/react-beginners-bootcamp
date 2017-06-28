@@ -8,20 +8,20 @@ class Auth extends React.Component {
 
   state = {
     name: 'Batman',
-    role: 'guest',
+    role: 'newUser',
   }
 
   renderOutput() {
     if (this.state.role === 'guest') {
       return <p>Hello guest</p>
     }
-    return (
-      <div>
-        <p>Welcome back { this.state.name }</p>
-        <p>Welcome aboard { this.state.name }!</p>
-      </div>
-    )
+
+    if (this.state.role === 'user') {
+      return <p>welcome back {this.state.name}</p>
+    }
+    return <p>welcome aboard {this.state.name}</p>
   }
+
   render() {
     return (
       <App
