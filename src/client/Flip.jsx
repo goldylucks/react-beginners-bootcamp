@@ -1,6 +1,8 @@
 import React from 'react'
 
+import App from './App'
+
 const Flip = () =>
-  <h1>Flip</h1>
+  <App title="Flip" foo="1" />
 
 export default Flip
