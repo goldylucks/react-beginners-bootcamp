@@ -13,13 +13,14 @@ class Guessnumber extends React.Component {
   }
 
   renderOutput() {
-    if (this.state.guessedNumber > this.state.targetNumber) {
-      return <div style={{ color: 'red' }}>[{this.state.guessedNumber}] Too high ...</div>
+    const { guessedNumber, targetNumber } = this.state
+    if (guessedNumber > targetNumber) {
+      return <div style={{ color: 'red' }}>[{guessedNumber}] Too high ...</div>
     }
-    if (this.state.guessedNumber < this.state.targetNumber) {
-      return <div style={{ color: 'red' }}>[{this.state.guessedNumber}] Too low ...</div>
+    if (guessedNumber < targetNumber) {
+      return <div style={{ color: 'red' }}>[{guessedNumber}] Too low ...</div>
     }
-    return <div style={{ color: 'limegreen' }}>[{this.state.guessedNumber}] Success! The number is { this.state.targetNumber }</div>
+    return <div style={{ color: 'limegreen' }}>[{guessedNumber}] Success! The number is { this.state.targetNumber }</div>
   }
 
   render() {

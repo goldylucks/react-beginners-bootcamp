@@ -11,13 +11,14 @@ class Flip extends React.Component {
   }
 
   renderOutput() {
-    if (!this.state.guessed) {
+    const { guessed, flipResult } = this.state
+    if (!guessed) {
       return null
     }
-    if (this.state.guessed === this.state.flipResult) {
-      return <div style={{ color: 'limegreen' }}>{this.state.flipResult}: you win!</div>
+    if (guessed === flipResult) {
+      return <div style={{ color: 'limegreen' }}>{flipResult}: you win!</div>
     }
-    return <div style={{ color: 'red' }}>{this.state.flipResult}: you lose!</div>
+    return <div style={{ color: 'red' }}>{flipResult}: you lose!</div>
   }
 
   render() {

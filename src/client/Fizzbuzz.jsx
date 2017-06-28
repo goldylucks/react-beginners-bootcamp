@@ -22,6 +22,8 @@ class Fizzbuzz extends React.Component {
     ))
   }
   render() {
+    const { startingNumberInput, endingNumberInput, divisibleNumber1Input,
+      divisibleWord1Input, divisibleNumber2Input, divisibleWord2Input } = this.state
     return (
       <App
         title="Fizzbuzz"
@@ -34,7 +36,7 @@ class Fizzbuzz extends React.Component {
                   <input
                     id="starting-number"
                     onChange={evt => this.setState({ startingNumberInput: evt.target.value })}
-                    value={this.state.startingNumberInput}
+                    value={startingNumberInput}
                     className="form-control"
                     type="number"
                     placeholder="starting number"
@@ -51,7 +53,7 @@ class Fizzbuzz extends React.Component {
                     type="number"
                     placeholder="ending number"
                     onChange={evt => this.setState({ endingNumberInput: evt.target.value })}
-                    value={this.state.endingNumberInput}
+                    value={endingNumberInput}
                     max={50}
                   />
                 </div>
@@ -67,7 +69,7 @@ class Fizzbuzz extends React.Component {
                     type="number"
                     placeholder="divisible number #1"
                     onChange={evt => this.setState({ divisibleNumber1Input: evt.target.value })}
-                    value={this.state.divisibleNumber1Input}
+                    value={divisibleNumber1Input}
                     max={10}
                   />
                 </div>
@@ -80,7 +82,7 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     placeholder="divisible word #1"
                     onChange={evt => this.setState({ divisibleWord1Input: evt.target.value })}
-                    value={this.state.divisibleWord1Input}
+                    value={divisibleWord1Input}
                   />
                 </div>
               </div>
@@ -95,7 +97,7 @@ class Fizzbuzz extends React.Component {
                     type="number"
                     placeholder="divisible number #2"
                     onChange={evt => this.setState({ divisibleNumber2Input: evt.target.value })}
-                    value={this.state.divisibleNumber2Input}
+                    value={divisibleNumber2Input}
                     max={20}
                   />
                 </div>
@@ -108,7 +110,7 @@ class Fizzbuzz extends React.Component {
                     className="form-control"
                     placeholder="divisible word #2"
                     onChange={evt => this.setState({ divisibleWord2Input: evt.target.value })}
-                    value={this.state.divisibleWord2Input}
+                    value={divisibleWord2Input}
                   />
                 </div>
               </div>
