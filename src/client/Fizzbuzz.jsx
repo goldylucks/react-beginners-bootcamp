@@ -2,7 +2,9 @@
 
 import React from 'react'
 
+import App from './App'
+
 const Fizzbuzz = () =>
-  <h1>Fizzbuzz 2</h1>
+  <App title="Fizzbuzz" />
 
 export default Fizzbuzz

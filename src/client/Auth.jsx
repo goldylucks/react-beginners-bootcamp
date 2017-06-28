@@ -2,7 +2,9 @@
 
 import React from 'react'
 
+import App from './App'
+
 const Auth = () =>
-  <h1>Auth</h1>
+  <App title="Auth" />
 
 export default Auth
