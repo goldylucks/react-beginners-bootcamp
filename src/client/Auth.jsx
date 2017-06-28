@@ -12,6 +12,22 @@ class Auth extends React.Component {
     role: 'guest',
   }
 
+  signup = () => {
+    this.setState({
+      role: 'newUser',
+      name: this.state.nameInput,
+      nameInput: '',
+    })
+  }
+
+  login = () => {
+    this.setState({
+      role: 'user',
+      name: this.state.nameInput,
+      nameInput: '',
+    })
+  }
+
   renderOutput() {
     const { role, name } = this.state
     if (role === 'guest') {
@@ -52,10 +68,10 @@ class Auth extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button onClick={() => { console.log('Signup') }} className="btn btn-primary btn-block">Signup</button>
+                <button onClick={this.signup} className="btn btn-primary btn-block">Signup</button>
               </div>
               <div className="col-md-6">
-                <button onClick={() => { console.log('Login') }} className="btn btn-default btn-block">Login</button>
+                <button onClick={this.login} className="btn btn-default btn-block">Login</button>
               </div>
             </div>
           </div>

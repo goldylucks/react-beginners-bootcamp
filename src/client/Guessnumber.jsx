@@ -4,12 +4,18 @@ import React from 'react'
 
 import App from './App'
 
+const randomNumberBetween = (min, max) => (Math.floor((Math.random() * (max - min)) + 1) + min)
+
 class Guessnumber extends React.Component {
 
   state = {
     guessedNumberInput: '0',
     guessedNumber: 0,
-    targetNumber: 75,
+    targetNumber: randomNumberBetween(1, 100),
+  }
+
+  guessNumber() {
+    this.setState({ guessedNumber: Number(this.state.guessedNumberInput) })
   }
 
   renderOutput() {
@@ -42,7 +48,7 @@ class Guessnumber extends React.Component {
               max={100}
             />
             <span className="input-group-btn">
-              <button onClick={() => { console.log('Guess') }} className="btn btn-primary">Guess</button>
+              <button onClick={() => this.guessNumber()} className="btn btn-primary">Guess</button>
             </span>
           </div>
         }

@@ -4,6 +4,26 @@ import React from 'react'
 
 import App from './App'
 
+const isDivisible = (n, divisbleBy) => n % divisbleBy === 0
+
+const getFizzbuzzStrings = (startingNumber, endingNumber, divisibleWord1,
+  divisibleNumber1, divisibleWord2, divisibleNumber2) => {
+  const outputStrings = []
+  for (let i = startingNumber; i <= endingNumber; i += 1) {
+    if (isDivisible(i, divisibleNumber2) &&
+    isDivisible(i, divisibleNumber2)) {
+      outputStrings.push(divisibleWord1 + divisibleWord2)
+    } else if (isDivisible(i, divisibleNumber1)) {
+      outputStrings.push(divisibleWord1)
+    } else if (isDivisible(i, divisibleNumber2)) {
+      outputStrings.push(divisibleWord2)
+    } else {
+      outputStrings.push(i)
+    }
+  }
+  return outputStrings
+}
+
 class Fizzbuzz extends React.Component {
   state = {
     startingNumberInput: '1',
@@ -13,6 +33,18 @@ class Fizzbuzz extends React.Component {
     divisibleNumber2Input: '5',
     divisibleWord2Input: 'Buzz',
     outputStrings: [],
+  }
+
+  hitme = () => {
+    const outputStrings = getFizzbuzzStrings(
+      Number(this.state.startingNumberInput),
+      Number(this.state.endingNumberInput),
+      this.state.divisibleWord1Input,
+      Number(this.state.divisibleNumber1Input),
+      this.state.divisibleWord2Input,
+      Number(this.state.divisibleNumber2Input),
+    )
+    this.setState({ outputStrings })
   }
 
   renderOutput() {
@@ -117,7 +149,7 @@ class Fizzbuzz extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button onClick={() => { console.log('fizzbuzz hit me') }} className="btn btn-primary btn-block">Hit me!</button>
+                <button onClick={this.hitme} className="btn btn-primary btn-block">Hit me!</button>
               </div>
               <div className="col-md-6">
                 <button onClick={() => { console.log('fizzbuzz reset') }} className="btn btn-default btn-block">Reset</button>

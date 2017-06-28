@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 
 import App from './App'
@@ -8,6 +10,23 @@ class Flip extends React.Component {
     score: 0,
     guessed: '',
     flipResult: '',
+  }
+
+  guess(guessed: string) {
+    const flipResult = Math.random() > 0.45 ? 'Heads' : 'Tails'
+    this.setState({
+      flipResult,
+      score: flipResult === guessed ? this.state.score + 1 : this.state.score - 1,
+      guessed,
+    })
+  }
+
+  reset() {
+    this.setState({
+      score: 0,
+      guessed: '',
+      flipResult: '',
+    })
   }
 
   renderOutput() {
@@ -24,17 +43,17 @@ class Flip extends React.Component {
   render() {
     return (
       <App
-        title="Flip"
+        title={'Flip'}
         controls={
           <div>
             <div className="col-md-4">
-              <button onClick={() => { console.log('Heads') }} className="btn btn-primary btn-block">Heads</button>
+              <button onClick={() => { this.guess('Heads') }} className="btn btn-primary btn-block">Heads</button>
             </div>
             <div className="col-md-4">
-              <button onClick={() => { console.log('Tails') }} className="btn btn-primary btn-block">Tails</button>
+              <button onClick={() => { this.guess('Tails') }} className="btn btn-primary btn-block">Tails</button>
             </div>
             <div className="col-md-4">
-              <button onClick={() => { console.log('Reset') }} className="btn btn-default btn-block">Reset</button>
+              <button onClick={() => { this.reset() }} className="btn btn-default btn-block">Reset</button>
             </div>
           </div>
         }
