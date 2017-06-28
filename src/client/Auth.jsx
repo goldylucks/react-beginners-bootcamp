@@ -45,10 +45,10 @@ class Auth extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button className="btn btn-primary btn-block">Signup</button>
+                <button onClick={() => { console.log('Signup') }} className="btn btn-primary btn-block">Signup</button>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-default btn-block">Login</button>
+                <button onClick={() => { console.log('Login') }} className="btn btn-default btn-block">Login</button>
               </div>
             </div>
           </div>

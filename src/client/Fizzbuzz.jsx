@@ -65,10 +65,10 @@ class Fizzbuzz extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <button className="btn btn-primary btn-block">Hit me!</button>
+                <button onClick={() => { console.log('fizzbuzz hit me') }} className="btn btn-primary btn-block">Hit me!</button>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-default btn-block">Reset</button>
+                <button onClick={() => { console.log('fizzbuzz reset') }} className="btn btn-default btn-block">Reset</button>
               </div>
             </div>
           </div>

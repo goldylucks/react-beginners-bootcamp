@@ -27,13 +27,13 @@ class Flip extends React.Component {
         controls={
           <div>
             <div className="col-md-4">
-              <button className="btn btn-primary btn-block">Heads</button>
+              <button onClick={() => { console.log('Heads') }} className="btn btn-primary btn-block">Heads</button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-primary btn-block">Tails</button>
+              <button onClick={() => { console.log('Tails') }} className="btn btn-primary btn-block">Tails</button>
             </div>
             <div className="col-md-4">
-              <button className="btn btn-default btn-block">Reset</button>
+              <button onClick={() => { console.log('Reset') }} className="btn btn-default btn-block">Reset</button>
             </div>
           </div>
         }
