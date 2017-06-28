@@ -5,7 +5,7 @@
     "dev:wds": "webpack-dev-server --progress",
     "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
     "prod:start": "cross-env NODE_ENV=production PORT=8001 node lib/server",
-    "lint": "eslint src webpack.config.babel.js",
+    "lint": "eslint src/**/*.{js,jsx} webpack.config.babel.js",
     "lint-staged": "lint-staged",
     "lintstyle": "stylelint src/**/*.css public/css/style.css"
   },
