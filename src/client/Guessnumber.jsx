@@ -7,13 +7,16 @@ import App from './App'
 class Guessnumber extends React.Component {
 
   state = {
-    guessedNumberInput: '25',
-    guessedNumber: 71,
+    guessedNumberInput: '0',
+    guessedNumber: 0,
     targetNumber: 75,
   }
 
   renderOutput() {
     const { guessedNumber, targetNumber } = this.state
+    if (!guessedNumber) {
+      return null
+    }
     if (guessedNumber > targetNumber) {
       return <div style={{ color: 'red' }}>[{guessedNumber}] Too high ...</div>
     }

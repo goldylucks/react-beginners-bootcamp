@@ -12,7 +12,7 @@ class Fizzbuzz extends React.Component {
     divisibleWord1Input: 'Fizz',
     divisibleNumber2Input: '5',
     divisibleWord2Input: 'Buzz',
-    outputStrings: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '12', '13', '14', 'FizzBuzz'],
+    outputStrings: [],
   }
 
   renderOutput() {

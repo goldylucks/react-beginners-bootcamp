@@ -7,9 +7,9 @@ import App from './App'
 class Auth extends React.Component {
 
   state = {
-    name: 'Batman',
+    name: '',
     nameInput: '',
-    role: 'newUser',
+    role: 'guest',
   }
 
   renderOutput() {
