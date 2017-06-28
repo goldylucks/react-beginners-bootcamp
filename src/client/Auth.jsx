@@ -8,6 +8,7 @@ class Auth extends React.Component {
 
   state = {
     name: 'Batman',
+    nameInput: '',
     role: 'newUser',
   }
 
@@ -30,7 +31,12 @@ class Auth extends React.Component {
           <div>
             <div className="row">
               <div className="col-md-12 form-group">
-                <input placeholder="Name" className="form-control" />
+                <input
+                  placeholder="Name"
+                  className="form-control"
+                  onChange={evt => this.setState({ nameInput: evt.target.value })}
+                  value={this.state.nameInput}
+                />
               </div>
             </div>
             <div className="row">

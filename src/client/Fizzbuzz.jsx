@@ -6,6 +6,12 @@ import App from './App'
 
 class Fizzbuzz extends React.Component {
   state = {
+    startingNumberInput: '1',
+    endingNumberInput: '15',
+    divisibleNumber1Input: '3',
+    divisibleWord1Input: 'Fizz',
+    divisibleNumber2Input: '5',
+    divisibleWord2Input: 'Buzz',
     outputStrings: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '12', '13', '14', 'FizzBuzz'],
   }
 
@@ -25,13 +31,29 @@ class Fizzbuzz extends React.Component {
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="starting-number">Starting Number</label>
-                  <input id="starting-number" className="form-control" type="number" placeholder="starting number" value={1} max={10} />
+                  <input
+                    id="starting-number"
+                    onChange={evt => this.setState({ startingNumberInput: evt.target.value })}
+                    value={this.state.startingNumberInput}
+                    className="form-control"
+                    type="number"
+                    placeholder="starting number"
+                    max={10}
+                  />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="ending-number">Ending Number</label>
-                  <input id="ending-number" className="form-control" type="number" placeholder="ending number" value={15} max={50} />
+                  <input
+                    id="ending-number"
+                    className="form-control"
+                    type="number"
+                    placeholder="ending number"
+                    onChange={evt => this.setState({ endingNumberInput: evt.target.value })}
+                    value={this.state.endingNumberInput}
+                    max={50}
+                  />
                 </div>
               </div>
             </div>
@@ -39,13 +61,27 @@ class Fizzbuzz extends React.Component {
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="divisible-number-1">Divisible Number #1</label>
-                  <input id="divisible-number-1" className="form-control" type="number" placeholder="divisible number #1" value={3} max={10} />
+                  <input
+                    id="divisible-number-1"
+                    className="form-control"
+                    type="number"
+                    placeholder="divisible number #1"
+                    onChange={evt => this.setState({ divisibleNumber1Input: evt.target.value })}
+                    value={this.state.divisibleNumber1Input}
+                    max={10}
+                  />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="divisible-word-1">Divisible Word #1</label>
-                  <input id="divisible-word-1" className="form-control" placeholder="divisible word #1" value="Fizz" />
+                  <input
+                    id="divisible-word-1"
+                    className="form-control"
+                    placeholder="divisible word #1"
+                    onChange={evt => this.setState({ divisibleWord1Input: evt.target.value })}
+                    value={this.state.divisibleWord1Input}
+                  />
                 </div>
               </div>
             </div>
@@ -53,13 +89,27 @@ class Fizzbuzz extends React.Component {
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="divisible-number-2">Divisible Number #2</label>
-                  <input id="divisible-number-2" className="form-control" type="number" placeholder="divisible number #2" value={5} max={20} />
+                  <input
+                    id="divisible-number-2"
+                    className="form-control"
+                    type="number"
+                    placeholder="divisible number #2"
+                    onChange={evt => this.setState({ divisibleNumber2Input: evt.target.value })}
+                    value={this.state.divisibleNumber2Input}
+                    max={20}
+                  />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="divisible-word-2">Divisible Word #2</label>
-                  <input id="divisible-word-2" className="form-control" placeholder="divisible word #2" value="Buzz" />
+                  <input
+                    id="divisible-word-2"
+                    className="form-control"
+                    placeholder="divisible word #2"
+                    onChange={evt => this.setState({ divisibleWord2Input: evt.target.value })}
+                    value={this.state.divisibleWord2Input}
+                  />
                 </div>
               </div>
             </div>
