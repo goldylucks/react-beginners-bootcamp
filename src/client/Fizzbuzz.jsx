@@ -6,7 +6,13 @@ import App from './App'
 
 class Fizzbuzz extends React.Component {
   state = {
-    outputStrings: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'],
+    outputStrings: [],
+  }
+
+  renderOutput() {
+    return this.state.outputStrings.map((s, idx) => (
+      <div key={idx}>{s}</div>
+    ))
   }
   render() {
     return (
@@ -68,7 +74,7 @@ class Fizzbuzz extends React.Component {
         }
         output={
           <div>
-            {this.state.outputStrings}
+            {this.renderOutput()}
           </div>
         }
       />
