@@ -5,7 +5,29 @@ import App from './App'
 class Flip extends React.Component {
 
   state = {
-    score: 10,
+    score: 0,
+    guessed: '',
+    flipResult: 'Heads',
+  }
+
+  renderOutput() {
+    if (!this.state.guessed) {
+      return <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+    }
+    if (this.state.guessed === this.state.flipResult) {
+      return (
+        <div>
+          <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+          <div style={{ color: 'limegreen' }}>{this.state.flipResult}: you win!</div>
+        </div>
+      )
+    }
+    return (
+      <div>
+        <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
+        <div style={{ color: 'red' }}>{this.state.flipResult}: you lose!</div>
+      </div>
+    )
   }
 
   render() {
@@ -25,15 +47,7 @@ class Flip extends React.Component {
             </div>
           </div>
         }
-        output={
-          <div>
-            <span style={{ color: 'green' }}>Score: <strong>{this.state.score}</strong></span>
-            <div style={{ color: 'limegreen' }}>Heads: you win!</div>
-            <div style={{ color: 'red' }}>Heads: you lose!</div>
-            <div style={{ color: 'limegreen' }}>Tails: you win!</div>
-            <div style={{ color: 'red' }}>Tails: you lose!</div>
-          </div>
-        }
+        output={this.renderOutput()}
       />
     )
   }
