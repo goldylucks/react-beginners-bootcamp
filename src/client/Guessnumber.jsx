@@ -1,17 +1,32 @@
 // @flow
 
 import React from 'react'
+import axios from 'axios'
 
 import App from './App'
 
 const randomNumberBetween = (min, max) => (Math.floor((Math.random() * (max - min)) + 1) + min)
+
+const fetchRandomNumber = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(randomNumberBetween(1, 100))
+    }, 500)
+  })
+}
 
 class Guessnumber extends React.Component {
 
   state = {
     guessedNumberInput: '0',
     guessedNumber: 0,
-    targetNumber: randomNumberBetween(1, 100),
+    targetNumber: 0,
+  }
+
+  componentWillMount() {
+    console.log('componentWillMount')
+    axios.get('http://localhost:8000/api/getNumber')
+      .then((data) => { console.log('data', data) })
   }
 
   guessNumber() {

@@ -20,9 +20,11 @@
     "src/**/*.{js,jsx}": "eslint"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
     "compression": "^1.6.2",
+    "cors": "^2.8.3",
     "dotenv": "^4.0.0",
     "express": "^4.15.0",
     "jss": "^6.5.0",

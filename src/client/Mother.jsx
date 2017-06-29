@@ -39,12 +39,12 @@ class Mother extends React.Component {
       <div>
         <Nav greetingMessage={this.state.greetingMessage} />
         <Switch>
-          <Route exact path="/" render={() => <h1>Mother loves her little baby</h1>} />
           <Route path="/flip" component={Flip} />
           <Route path="/guessnumber" component={Guessnumber} />
           <Route path="/fizzbuzz" component={Fizzbuzz} />
           <Route
-            path="/auth"
+            exact
+            path="/"
             render={() =>
               <Auth
                 onLogin={this.login}
