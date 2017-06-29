@@ -23,11 +23,11 @@ class Guessnumber extends React.Component {
     targetNumber: 0,
   }
 
-  componentWillMount() {
-    console.log('componentWillMount')
-    axios.get('http://localhost:8000/api/getNumber')
-      .then((data) => { console.log('data', data) })
-  }
+  // componentWillMount() {
+  //   console.log('componentWillMount')
+  //   axios.get('http://localhost:8000/api/getNumber')
+  //     .then((data) => { console.log('data', data) })
+  // }
 
   guessNumber() {
     this.setState({ guessedNumber: Number(this.state.guessedNumberInput) })

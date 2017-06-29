@@ -12,6 +12,25 @@ class Flip extends React.Component {
     flipResult: '',
   }
 
+  componentDidMount() {
+    document.addEventListener('keypress', this.onKeypress)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.onKeypress)
+  }
+
+  onKeypress = (evt: Object) => {
+    if (evt.key === 'h') {
+      this.guess('Heads')
+      return
+    }
+
+    if (evt.key === 'r') {
+      this.reset()
+    }
+  }
+
   guess(guessed: string) {
     const flipResult = Math.random() > 0.45 ? 'Heads' : 'Tails'
     this.setState({
@@ -66,6 +85,7 @@ class Flip extends React.Component {
       />
     )
   }
+
 }
 
 export default Flip
