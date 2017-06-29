@@ -4,7 +4,11 @@ import React from 'react'
 
 import { NavLink } from 'react-router-dom'
 
-const Nav = () =>
+type Props = {
+  greetingMessage: string,
+}
+
+const Nav = ({ greetingMessage }: Props) =>
   <nav className="navbar navbar-default">
     <div className="container">
       <ul className="nav navbar-nav">
@@ -14,6 +18,9 @@ const Nav = () =>
         <li><NavLink to="/fizzbuzz" className="nav-item">Fizzbuzz</NavLink></li>
         <li><NavLink to="/auth" className="nav-item">Auth</NavLink></li>
       </ul>
+      <div className="pull-right">
+        <div className="navbar-text">{greetingMessage}</div>
+      </div>
     </div>
   </nav>
 
