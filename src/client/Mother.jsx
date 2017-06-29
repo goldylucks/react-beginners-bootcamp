@@ -5,6 +5,7 @@ import { Switch } from 'react-router'
 import { Route } from 'react-router-dom'
 
 import Flip from './Flip'
+import ProtectedRoute from './ProtectedRoute'
 import Guessnumber from './Guessnumber'
 import Fizzbuzz from './Fizzbuzz'
 import Auth from './Auth'
@@ -41,7 +42,10 @@ class Mother extends React.Component {
         <Switch>
           <Route path="/flip" component={Flip} />
           <Route path="/guessnumber" component={Guessnumber} />
-          <Route path="/fizzbuzz" component={Fizzbuzz} />
+          <ProtectedRoute
+            path="/fizzbuzz"
+            component={<Fizzbuzz />}
+          />
           <Route
             exact
             path="/"

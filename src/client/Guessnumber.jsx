@@ -1,33 +1,26 @@
 // @flow
 
 import React from 'react'
-import axios from 'axios'
 
 import App from './App'
 
 const randomNumberBetween = (min, max) => (Math.floor((Math.random() * (max - min)) + 1) + min)
-
-const fetchRandomNumber = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(randomNumberBetween(1, 100))
-    }, 500)
-  })
-}
 
 class Guessnumber extends React.Component {
 
   state = {
     guessedNumberInput: '0',
     guessedNumber: 0,
-    targetNumber: 0,
+    targetNumber: randomNumberBetween(1, 100),
   }
 
-  // componentWillMount() {
-  //   console.log('componentWillMount')
-  //   axios.get('http://localhost:8000/api/getNumber')
-  //     .then((data) => { console.log('data', data) })
-  // }
+  componentDidMount() {
+    setTimeout(() => {
+      this.guessNumberInput.focus()
+    }, 1000)
+  }
+
+  guessNumberInput = null
 
   guessNumber() {
     this.setState({ guessedNumber: Number(this.state.guessedNumberInput) })
@@ -54,6 +47,7 @@ class Guessnumber extends React.Component {
         controls={
           <div className="input-group">
             <input
+              autoFocus
               value={this.state.guessedNumberInput}
               onChange={(evt) => { this.setState({ guessedNumberInput: evt.target.value }) }}
               className="form-control"
