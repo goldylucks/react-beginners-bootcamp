@@ -2,16 +2,17 @@
 
 import { handleActions } from 'redux-actions'
 
-import { FLIP_GUESS } from './actions'
+import { GUESS } from './flipActions'
 
 const initialState = {
   score: 0,
 }
 
 const flipReducer = handleActions({
-  [FLIP_GUESS](state, action) {
+  [GUESS](state, action) {
     return {
       ...state,
+      score: action.payload,
     }
   },
 }, initialState)

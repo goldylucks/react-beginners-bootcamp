@@ -37,16 +37,6 @@ class Mother extends React.Component {
     })
   }
 
-  flipGuess = (score: number) => {
-    this.setState({ flipScore: score })
-  }
-
-  flipReset = () => {
-    this.setState({
-      flipScore: 0,
-    })
-  }
-
   numberGuess = (guessedNumber: number) => {
     this.setState({ guessedNumber })
   }
@@ -66,7 +56,7 @@ class Mother extends React.Component {
         <Nav role={role} name={name} />
         <Switch>
           <Route exact path="/" component={() => <h1>Mother knows best dear</h1>} />
-          <Route path="/flip" render={() => <flip.Page score={flipScore} onGuess={this.flipGuess} onReset={this.flipReset} />} />
+          <Route path="/flip" render={() => <flip.Page />} />
           <Route path="/guessnumber" render={() => <Guessnumber guessedNumber={guessedNumber} targetNumber={targetNumber} onGuess={this.numberGuess} />} />
           <Route path="/fizzbuzz" render={() => <Fizzbuzz outputStrings={fizzbuzzStrings} onHitme={this.hitmeFizzbuzz} onReset={this.fizzbuzzReset} />} />
           <Route path="/auth" render={() => <Auth role={role} name={name} onLogin={this.login} onSignup={this.signup} />} />

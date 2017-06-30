@@ -1,6 +1,6 @@
-import * as actions from './actions'
-import reducer from './reducer'
-import Page from './Flip'
+import * as actions from './flipActions'
+import reducer from './flipReducer'
+import Page from './FlipPage'
 
 export default {
   actions,

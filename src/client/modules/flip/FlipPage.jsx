@@ -1,6 +1,9 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { guess } from './flipActions'
 
 import App from '../../App'
 
@@ -84,4 +87,10 @@ class Flip extends React.Component {
   }
 }
 
-export default Flip
+const mapStateToProps = state => (state.flip)
+
+const mapDispatchToProps = dispatch => ({
+  onGuess: score => dispatch(guess(score)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flip)
