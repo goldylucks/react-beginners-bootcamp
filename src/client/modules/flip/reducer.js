@@ -9,12 +9,11 @@ const initialState = {
 }
 
 const flipReducer = handleActions({
-  FLIP_GUESS(state, action) {
+  [FLIP_GUESS](state, action) {
     return {
       ...state,
-      score
     }
-  }
+  },
 }, initialState)
 
 export default flipReducer

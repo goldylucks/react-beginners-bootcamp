@@ -16,7 +16,7 @@ const loggerMiddleware = createLogger({
 })
 
 const reducers = {
-  flip: flip.flipReducer,
+  flip: flip.reducer,
 }
 
 // eslint-disable-next-line no-underscore-dangle

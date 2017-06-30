@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'redux'
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -10,9 +10,11 @@ import Welcome from './Welcome'
 import Mother from './Mother'
 import initStore from './initStore'
 
+const store = initStore()
+
 const render = (AppComponent, appname) => {
   ReactDOM.render(
-    <Provider store={initStore()}>
+    <Provider store={store}>
       <BrowserRouter>
         <AppComponent />
       </BrowserRouter>
