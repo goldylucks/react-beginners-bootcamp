@@ -28,7 +28,7 @@ const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMP
 
 const initStore = () => createStore(
   combineReducers(reducers),
-  composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware)),
+  composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware, auth.middleware)),
 )
 
 export default initStore

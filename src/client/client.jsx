@@ -18,7 +18,7 @@ const render = (AppComponent, appname) => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <AppComponent />
+        <AppComponent store={store} />
       </BrowserRouter>
     </Provider>,
     document.querySelector(`#${appname}-app`),
@@ -27,6 +27,8 @@ const render = (AppComponent, appname) => {
 
 render(Welcome, 'welcome')
 render(Mother, 'mother')
+
+store.dispatch({ type: 'INIT_APP' })
 
 if (module.hot) {
   // flow-disable-next-line

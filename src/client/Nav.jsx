@@ -3,10 +3,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-type Props = {
-  role: string,
-  name: string,
-}
+type Props = {}
 
 const Nav = ({ role, name }: Props) => (
   <nav className="navbar navbar-default">
