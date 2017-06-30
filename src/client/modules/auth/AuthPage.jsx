@@ -1,8 +1,11 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
 
-import App from './App'
+import { login, signup } from './authActions'
+
+import App from '../../App'
 
 type Props = {
   name: string,
@@ -71,4 +74,11 @@ class Auth extends React.Component {
   }
 }
 
-export default Auth
+const mapStateToProps = state => (state.auth)
+
+const mapDispatchToProps = dispatch => ({
+  onLogin: name => dispatch(login(name)),
+  onSignup: name => dispatch(signup(name)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth)

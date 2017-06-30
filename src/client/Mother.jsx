@@ -6,34 +6,14 @@ import { Route } from 'react-router-dom'
 
 import flip from './modules/flip'
 import guessnumber from './modules/guessnumber'
+import auth from './modules/auth'
 import Nav from './Nav'
 import Fizzbuzz from './Fizzbuzz'
-import Auth from './Auth'
 import Stats from './Stats'
 
 class Mother extends React.Component {
   state = {
-    role: 'guest',
-    name: '',
     fizzbuzzStrings: [],
-  }
-
-  signup = (name: string) => {
-    this.setState({
-      name,
-      role: 'newUser',
-    })
-  }
-
-  login = (name: string) => {
-    this.setState({
-      name,
-      role: 'user',
-    })
-  }
-
-  numberGuess = (guessedNumber: number) => {
-    this.setState({ guessedNumber })
   }
 
   hitmeFizzbuzz = (fizzbuzzStrings: Array<string>) => {
@@ -45,17 +25,17 @@ class Mother extends React.Component {
   }
 
   render() {
-    const { role, name, guessedNumber, targetNumber, fizzbuzzStrings } = this.state
+    const { fizzbuzzStrings } = this.state
     return (
       <div>
-        <Nav role={role} name={name} />
+        <Nav />
         <Switch>
           <Route exact path="/" component={() => <h1>Mother knows best dear</h1>} />
           <Route path="/flip" render={() => <flip.Page />} />
           <Route path="/guessnumber" render={() => <guessnumber.Page />} />
           <Route path="/fizzbuzz" render={() => <Fizzbuzz outputStrings={fizzbuzzStrings} onHitme={this.hitmeFizzbuzz} onReset={this.fizzbuzzReset} />} />
-          <Route path="/auth" render={() => <Auth role={role} name={name} onLogin={this.login} onSignup={this.signup} />} />
-          <Route path="/stats" render={() => <Stats guessedNumber={guessedNumber} targetNumber={targetNumber} fizzbuzzStrings={fizzbuzzStrings} />} />
+          <Route path="/auth" render={() => <auth.Page onLogin={this.login} onSignup={this.signup} />} />
+          <Route path="/stats" render={() => <Stats fizzbuzzStrings={fizzbuzzStrings} />} />
         </Switch>
       </div>
     )

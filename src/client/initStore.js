@@ -8,6 +8,7 @@ import { isProd } from '../shared/utils'
 
 import flip from './modules/flip'
 import guessnumber from './modules/guessnumber'
+import auth from './modules/auth'
 
 global.SHOULD_LOG = !isProd
 
@@ -19,6 +20,7 @@ const loggerMiddleware = createLogger({
 const reducers = {
   flip: flip.reducer,
   guessnumber: guessnumber.reducer,
+  auth: auth.reducer,
 }
 
 // eslint-disable-next-line no-underscore-dangle
