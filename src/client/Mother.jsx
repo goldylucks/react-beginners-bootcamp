@@ -50,7 +50,7 @@ class Mother extends React.Component {
   }
 
   render() {
-    const { role, name, flipScore, guessedNumber, targetNumber, fizzbuzzStrings } = this.state
+    const { role, name, guessedNumber, targetNumber, fizzbuzzStrings } = this.state
     return (
       <div>
         <Nav role={role} name={name} />
@@ -60,7 +60,7 @@ class Mother extends React.Component {
           <Route path="/guessnumber" render={() => <Guessnumber guessedNumber={guessedNumber} targetNumber={targetNumber} onGuess={this.numberGuess} />} />
           <Route path="/fizzbuzz" render={() => <Fizzbuzz outputStrings={fizzbuzzStrings} onHitme={this.hitmeFizzbuzz} onReset={this.fizzbuzzReset} />} />
           <Route path="/auth" render={() => <Auth role={role} name={name} onLogin={this.login} onSignup={this.signup} />} />
-          <Route path="/stats" render={() => <Stats flipScore={flipScore} guessedNumber={guessedNumber} targetNumber={targetNumber} fizzbuzzStrings={fizzbuzzStrings} />} />
+          <Route path="/stats" render={() => <Stats guessedNumber={guessedNumber} targetNumber={targetNumber} fizzbuzzStrings={fizzbuzzStrings} />} />
         </Switch>
       </div>
     )

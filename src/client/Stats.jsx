@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
 
 const styles = {
   success: { color: 'limegreen' },
@@ -35,4 +36,10 @@ const Stats = ({ flipScore, guessedNumber, targetNumber, fizzbuzzStrings }: Prop
   </div>
 )
 
-export default Stats
+const mapStateToProps = state => ({
+  flipScore: state.flip.score,
+})
+
+const mapDispatchToProps = () => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stats)

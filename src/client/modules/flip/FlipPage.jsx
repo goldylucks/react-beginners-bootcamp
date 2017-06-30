@@ -87,7 +87,7 @@ class Flip extends React.Component {
   }
 }
 
-const mapStateToProps = state => (state.flip)
+const mapStateToProps = state => state.flip
 
 const mapDispatchToProps = dispatch => ({
   onGuess: score => dispatch(guess(score)),
