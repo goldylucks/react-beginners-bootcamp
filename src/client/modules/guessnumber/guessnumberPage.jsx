@@ -1,8 +1,11 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
 
-import App from './App'
+import { guess } from './guessnumberActions'
+
+import App from '../../App'
 
 const styles = {
   success: {
@@ -70,4 +73,10 @@ class Guessnumber extends React.Component {
   }
 }
 
-export default Guessnumber
+const mapStateToProps = state => state.guessnumber
+
+const mapDispatchToProps = dispatch => ({
+  onGuess: guessedNumber => dispatch(guess(guessedNumber)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Guessnumber)

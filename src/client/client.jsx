@@ -12,6 +12,8 @@ import initStore from './initStore'
 
 const store = initStore()
 
+global.store = store
+
 const render = (AppComponent, appname) => {
   ReactDOM.render(
     <Provider store={store}>

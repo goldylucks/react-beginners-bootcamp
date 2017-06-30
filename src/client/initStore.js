@@ -7,6 +7,7 @@ import { createLogger } from 'redux-logger'
 import { isProd } from '../shared/utils'
 
 import flip from './modules/flip'
+import guessnumber from './modules/guessnumber'
 
 global.SHOULD_LOG = !isProd
 
@@ -17,6 +18,7 @@ const loggerMiddleware = createLogger({
 
 const reducers = {
   flip: flip.reducer,
+  guessnumber: guessnumber.reducer,
 }
 
 // eslint-disable-next-line no-underscore-dangle
