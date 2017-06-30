@@ -3,7 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { guess } from './flipActions'
+import { guess, reset } from './flipActions'
 
 import App from '../../App'
 
@@ -91,6 +91,7 @@ const mapStateToProps = state => (state.flip)
 
 const mapDispatchToProps = dispatch => ({
   onGuess: score => dispatch(guess(score)),
+  onReset: () => dispatch(reset()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Flip)
