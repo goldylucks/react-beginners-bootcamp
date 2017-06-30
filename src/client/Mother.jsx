@@ -4,7 +4,7 @@ import React from 'react'
 import { Switch } from 'react-router'
 import { Route } from 'react-router-dom'
 
-import Flip from './Flip'
+import flip from './modules/flip'
 import Nav from './Nav'
 import Guessnumber from './Guessnumber'
 import Fizzbuzz from './Fizzbuzz'
@@ -66,7 +66,7 @@ class Mother extends React.Component {
         <Nav role={role} name={name} />
         <Switch>
           <Route exact path="/" component={() => <h1>Mother knows best dear</h1>} />
-          <Route path="/flip" render={() => <Flip score={flipScore} onGuess={this.flipGuess} onReset={this.flipReset} />} />
+          <Route path="/flip" render={() => <flip.Page score={flipScore} onGuess={this.flipGuess} onReset={this.flipReset} />} />
           <Route path="/guessnumber" render={() => <Guessnumber guessedNumber={guessedNumber} targetNumber={targetNumber} onGuess={this.numberGuess} />} />
           <Route path="/fizzbuzz" render={() => <Fizzbuzz outputStrings={fizzbuzzStrings} onHitme={this.hitmeFizzbuzz} onReset={this.fizzbuzzReset} />} />
           <Route path="/auth" render={() => <Auth role={role} name={name} onLogin={this.login} onSignup={this.signup} />} />
