@@ -9,6 +9,8 @@ import App from '../../App'
 
 type Props = {
   name: string,
+  isProcessing: boolean,
+  error: ?string,
   role: string,
   onLogin: Function,
   onSignup: Function,
@@ -56,6 +58,12 @@ class Auth extends React.Component {
             <div className="row">
               <div className="col-md-12 form-group">
                 <input type="password" placeholder="Password" className="form-control" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6">
+                {this.props.isProcessing && <h4>Processing ...</h4>}
+                {this.props.error}
               </div>
             </div>
             <div className="row">

@@ -2,8 +2,12 @@
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-type Props = {}
+type Props = {
+  role: string,
+  name: string,
+}
 
 const Nav = ({ role, name }: Props) => (
   <nav className="navbar navbar-default">
@@ -25,4 +29,9 @@ const Nav = ({ role, name }: Props) => (
   </nav>
 )
 
-export default Nav
+const mapStateToProps = state => ({
+  role: state.auth.role,
+  name: state.auth.name,
+})
+
+export default connect(mapStateToProps)(Nav)
